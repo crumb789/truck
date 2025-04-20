@@ -1,0 +1,94 @@
+<template>
+    <div class="about animate__animated animate__fadeInUpBig animate__faster animate__delay-1s">
+        <div class="about_title">
+            О компании 
+            <div class="about_title-descr">
+                Доставим груз повсюду, где проедут колеса
+            </div>
+        </div>
+        <div class="about-content">
+            <div class="boxes">
+                <div class="box_left">
+                    <p>
+                        Если взглянуть на карту России, будет очень сложно найти место, где нас не было.
+                        <br>
+                        <br>
+                        Мы побывали во всех уголках нашей 
+                        необъятной страны и доставили тысячи тонн различных грузов.
+                        <br>
+                        <br>
+                        Благодаря высокопрофессиональным 
+                        сотрудникам и современному автопарку, Транспортная компания «Дукат» должна стать первым помощником для среднего и 
+                        крупного бизнеса.
+                    </p>
+                </div>
+                <div class="box_right">
+                    <p>
+                        Транспортная компания «ТБО СЕРВИС+» предлагает 
+                        сотрудничество по грузоперевозкам на территории Российской Федерации.
+                        <br>
+                        <br>
+                        ТК «ТБО СЕРВИС+» существует на рынке с 2024 года.
+                        <br>
+                        <br>
+                        Филиал компании находится г.Санкт-Петербург.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+<style lang="scss">
+.about{
+    background-color: rgb(95 158 160 / 48%);
+    width: 98%;
+    margin: 0 auto;
+    padding: 50px 30px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 99;
+    &_title{
+        font-family: "Oswald", sans-serif;
+        font-optical-sizing: auto;
+        font-size: 24px;
+        color: #230903;
+        position: absolute;
+        left: 15px;
+        text-align: left;
+        background-color: #F4F2F3;
+        padding: 5px 70px 5px 12px;
+        border-radius: 5px;
+        color: #230903;
+        transition: 0.5s all;
+        cursor: pointer;
+        &:hover{
+            box-shadow: 3px 2px 10px #181818;
+        }
+        &-descr{
+            font-size: 18px;
+        }
+    }
+}
+.boxes{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+    text-align: left;
+    color: #ffffff;
+    border-radius: 3px;
+    padding: 6px;
+    text-shadow: 1px 1px 2px #242424;
+    letter-spacing: 0.5px;
+}
+.box{
+    &_left{
+        width: 50%;
+    }
+    &_right{
+        width: 50%;
+    }
+}
+</style>
