@@ -36,8 +36,19 @@
                 </div>
             </div>
         </div>
+        <img class="truckImg" src="../assets/icons/truck-long-svgrepo-com.svg" alt="truck">
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return{
+
+        }
+    },
+}
+</script>
 
 
 <style lang="scss">
@@ -89,6 +100,34 @@
     }
     &_right{
         width: 50%;
+    }
+}
+
+.truckImg{
+    position: absolute;
+    width: 350px;
+    top: 162px;
+    z-index: -1;
+    opacity: 0.2;
+    // right: 110px;
+    animation: moving 5s infinite ease-in-out;
+}
+
+@keyframes moving {
+    0%{
+        right: 110px;
+    }
+    25%{
+        right: 130px;
+    }
+    50%{
+        right: 95px;
+    }
+    75%{
+        right: 155px;
+    }
+    100%{
+        right: 110px;
     }
 }
 </style>

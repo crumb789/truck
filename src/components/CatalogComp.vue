@@ -6,28 +6,71 @@
         </div>
         <div class="catalog_actual">
             <div class="catalog_actual-content">
-                <div class="content-image">
-                    <img :class="{active: imgActive}" src="../assets/images/catalogeImage.jpg" alt="">
-                </div>
-                 <div class="content_actual-link" :class="{opacityLink: imgActive}">
-                    Актуальный каталог и наличие можете посмотреть в WhatsApp по 
-                    <a href="https://wa.me/c/79013100781" target="_blank">ссылке</a>
-                 </div>  
+                <div class="content_actual-link" :class="{opacityLink: imgActive}">
+                    Актуальный каталог и наличие можно посмотреть в WhatsApp по 
+                    <a href="https://wa.me/c/79013100781" target="_blank" >ссылке</a>
+                </div>  
                 
-            </div>
-            <!-- <div class="catalog_acutual-link">
-                <a href="https://wa.me/c/79013100781">перейти по ссылке</a>
-            </div> -->
+                <div :class="{activeImg: actual.id === idImg}" v-for="actual in imagesActual" :key="actual.id" class="content-image">
+                    <img v-if="actual.id === idImg"  :class="{active: imgActive}" :src="require(`../assets/images/${actual.imgName}`)" :alt="actual.imgTitle">
+                    <!-- <img v-if="actual.id === idImg" :class="{active: imgActive}" src="../assets/images/catalogeImage2.jpg" :alt="actual.imgTitle">
+                    <img v-if="actual.id === idImg" :class="{active: imgActive}" src="../assets/images/catalogeImage3.jpg" :alt="actual.imgTitle">
+                    <img v-if="actual.id === idImg" :class="{active: imgActive}" src="../assets/images/catalogeImage4.jpg" :alt="actual.imgTitle"> -->
+                    <div class="buttons"  v-if="actual.id === idImg && imgActive">
+                        <div class="buttons-left" :class="{opacityBnts: imgActive}">
+                            <i @click="idImg = idImg - 1" v-if="idImg > 0" class="bi bi-chevron-compact-left"></i> 
+                        </div>        
+                         
+                        <div class="buttons-right" :class="{opacityBnts: imgActive}">
+                            <i  @click="idImg = idImg + 1" v-if="idImg < 3" class="bi bi-chevron-compact-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>   
 
         </div>
     </div>
 </template>
 
 <script>
+
+import catalogeImage from '@/assets/images/catalogeImage1.jpg'
+import catalogeImage2 from '@/assets/images/catalogeImage2.jpg'
+import catalogeImage3 from '@/assets/images/catalogeImage3.jpg'
+import catalogeImage4 from '@/assets/images/catalogeImage4.jpg'
+
+
 export default {
     data() {
         return{
             imgActive: false,
+            catalogeImage,
+            catalogeImage2,
+            catalogeImage3,
+            catalogeImage4,
+            idImg: 0,
+            imagesActual:[
+                {
+                    id:0,
+                    imgTitle:'catalogeImage1',
+                    imgName: 'catalogeImage1.jpg'
+                },
+                {
+                    id:1,
+                    imgTitle:'catalogeImage2',
+                    imgName: 'catalogeImage2.jpg'
+                },
+                {
+                    id:2,
+                    imgTitle:'catalogeImage3',
+                    imgName: 'catalogeImage3.jpg'
+                },
+                {
+                    id:3,
+                    imgTitle:'catalogeImage4',
+                    imgName: 'catalogeImage4.jpg'
+                },
+            ],
         }
     },
 }
@@ -111,22 +154,33 @@ export default {
 }
 .catalogActive{
     background-color: rgb(95 158 160 / 48%);
-    height: 280px;
+    height: 340px;
     transition: 0.4s all;
 }
 .content{
     &-image{
         // height: 250px;
+        display: none;
+        height: 300px;
+        width: 200px;
+        position: absolute;
+        left: 900px;
+        top: 50%;
+        transform: translate(0, -50%);
+        z-index: 98;
         img{
-            height: 2px;
+            height: 0px;
+            width: 0px;
             position: absolute;
             top: 0;
             z-index: 98;
-            left: 15px;
-            border-radius: 72px;
+            left: 0;
+            border-radius: 15px;
             top: 50%;
             transform: translateY(-50%);
             transition: 0.5s all;
+            box-sizing: border-box;
+            object-fit: cover;   // сохраняет пропорции изображения //
         }
     }
     &_actual{
@@ -136,15 +190,61 @@ export default {
         }
     }
 }
-
+.activeImg{
+    display: block !important;
+}
+.buttons{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 99;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 26px;
+    overflow: hidden;
+    transition: 0.5s all;
+    &-left{
+        opacity: 0;
+        position: absolute;
+        cursor: pointer;
+        left: -34px;
+        border: 1px solid #aba7a730;
+        border-radius: 100%;
+        padding: 32px 0px 32px 32px;
+        background-color: #aba7a730;
+        transition: 0.3s all;
+        &:hover{
+            background-color: #aba7a77d;
+        }
+    }
+    &-right{
+        opacity: 0;
+        position: absolute;
+        cursor: pointer;
+        right: -34px;
+        border: 1px solid #aba7a730;
+        border-radius: 100%;
+        padding: 32px 32px 32px 0px;
+        background-color: #aba7a730;
+        transition: 0.3s all;
+        &:hover{
+            background-color: #aba7a77d;
+        }
+    }
+}
 .opacityLink{
     opacity: 1 !important;
 }
-
+.opacityBnts{
+    opacity: 1 !important;
+}
 .active{
-    height: 250px !important;
+    height: 300px !important;
+    width: 200px !important;
     // left: 235px !important;
-    left: 900px !important;
+    // left: 900px !important;
+    left: 0;
     transition: 0.5s all;
     border: 1px solid #2a2a2a;
 }
