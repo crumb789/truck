@@ -50,7 +50,8 @@ export default {
                 {   
                     id: 3,
                     name: 'Расчетный счет',
-                    value: '40702810320000134118',
+                    value: '-',
+                    hide: '40702810320000134118',
                 },
                 {   
                     id: 4,
@@ -60,7 +61,8 @@ export default {
                 {   
                     id: 5,
                     name: 'Корр. счет',
-                    value: '30101810745374525104',
+                    value: '-',
+                    valueHide: '30101810745374525104',
                 },
                 {   
                     id: 6,
@@ -79,7 +81,8 @@ export default {
                 {   
                     id: 8,
                     name: 'Идентификатор ЭДО',
-                    value: '2AE57C66832-E2C3-45C2-B64A-C7E69988B1D9',
+                    value: '-',
+                    valueHide: '2AE57C66832-E2C3-45C2-B64A-C7E69988B1D9',
                 },
                 {   
                     id: 9,

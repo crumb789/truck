@@ -87,6 +87,7 @@ export default {
     display: flex;
     flex-direction: column;
     width: 500px;
+    margin-right: 15px;
     &_title{
       background: rgba(95, 158, 160, 0.8588235294);
       padding: 6px;

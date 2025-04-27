@@ -1,5 +1,6 @@
 <template>
   <home-comp></home-comp>
+  <btn-top></btn-top>
   <about-company></about-company>
   <philosophy-comp></philosophy-comp>
   <catalog-comp></catalog-comp>
@@ -15,6 +16,8 @@ import PhilosophyComp from '@/components/PhilosophyComp.vue'
 import FooterComp from '@/components/FooterComp.vue'
 import CatalogComp from '@/components/CatalogComp.vue'
 import InfoComp from '@/components/InfoComp.vue'
+import BtnTop from '@/components/UI/BtnTop.vue'
+
 
 
 
@@ -27,6 +30,7 @@ export default {
     CatalogComp,
     InfoComp,
     FooterComp,
+    BtnTop,
     
   }
 }
