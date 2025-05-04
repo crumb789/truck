@@ -5,6 +5,8 @@
   <philosophy-comp></philosophy-comp>
   <catalog-comp></catalog-comp>
   <info-comp></info-comp>
+  <cont-comp></cont-comp>
+  <form-back></form-back>
   <footer-comp></footer-comp>
 </template>
 
@@ -17,7 +19,8 @@ import FooterComp from '@/components/FooterComp.vue'
 import CatalogComp from '@/components/CatalogComp.vue'
 import InfoComp from '@/components/InfoComp.vue'
 import BtnTop from '@/components/UI/BtnTop.vue'
-
+import ContComp from '@/components/ContComp.vue'
+import FormBack from '@/components/FormBack.vue'
 
 
 
@@ -31,7 +34,8 @@ export default {
     InfoComp,
     FooterComp,
     BtnTop,
-    
+    ContComp,
+    FormBack    
   }
 }
 </script>

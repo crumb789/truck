@@ -1,5 +1,5 @@
 <template>
-    <div class="info">
+    <div class="info animate__animated animate__fadeInUpBig animate__faster animate__delay-3s">
         <div class="info-title titles">
             РЕКВИЗИТЫ ООО «ДУКАТ»
         </div>

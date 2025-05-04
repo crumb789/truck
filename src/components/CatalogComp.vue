@@ -1,6 +1,7 @@
 <template>
-    <div class="catalog" :class="{catalogActive: imgActive }">
-        <div class="catalog-title" @click="imgActive = !imgActive" >
+    <div class="catalog animate__animated animate__fadeInLeftBig animate__faster animate__delay-2s" 
+        :class="{catalogActive: imgActive }">
+        <div class="catalog-title" :class="{catalogTitleActive: imgActive }" @click="imgActive = !imgActive" >
             Каталог
             <i :class="{arrowBack: imgActive }" class="bi bi-arrow-right"></i>
         </div>
@@ -13,14 +14,16 @@
                 
                 <div :class="{activeImg: actual.id === idImg}" v-for="actual in imagesActual" :key="actual.id" class="content-image">
                     <img v-if="actual.id === idImg"  :class="{active: imgActive}" :src="require(`../assets/images/${actual.imgName}`)" :alt="actual.imgTitle">
-                    <!-- <img v-if="actual.id === idImg" :class="{active: imgActive}" src="../assets/images/catalogeImage2.jpg" :alt="actual.imgTitle">
-                    <img v-if="actual.id === idImg" :class="{active: imgActive}" src="../assets/images/catalogeImage3.jpg" :alt="actual.imgTitle">
-                    <img v-if="actual.id === idImg" :class="{active: imgActive}" src="../assets/images/catalogeImage4.jpg" :alt="actual.imgTitle"> -->
+                    <div v-if="actual.id === idImg && imgActive"  class="price">
+                       Цена от: 
+                       <a :href="actual.link" title="Посмотреть в каталоге">{{ actual.price }}</a>                       
+                       тыс.рублей
+                    </div>
+
                     <div class="buttons"  v-if="actual.id === idImg && imgActive">
                         <div class="buttons-left" :class="{opacityBnts: imgActive}">
                             <i @click="idImg = idImg - 1" v-if="idImg > 0" class="bi bi-chevron-compact-left"></i> 
-                        </div>        
-                         
+                        </div>
                         <div class="buttons-right" :class="{opacityBnts: imgActive}">
                             <i  @click="idImg = idImg + 1" v-if="idImg < 3" class="bi bi-chevron-compact-right"></i>
                         </div>
@@ -52,23 +55,31 @@ export default {
             imagesActual:[
                 {
                     id:0,
-                    imgTitle:'catalogeImage1',
-                    imgName: 'catalogeImage1.jpg'
+                    imgTitle: 'catalogeImage1',
+                    imgName: 'catalogeImage1.jpg',
+                    link: 'https://wa.me/p/9564548593603056/79013100781',
+                    price: '145',
                 },
                 {
                     id:1,
                     imgTitle:'catalogeImage2',
-                    imgName: 'catalogeImage2.jpg'
+                    imgName: 'catalogeImage2.jpg',
+                    link: 'https://wa.me/p/9595302970492191/79013100781',
+                    price: '180',
                 },
                 {
                     id:2,
                     imgTitle:'catalogeImage3',
-                    imgName: 'catalogeImage3.jpg'
+                    imgName: 'catalogeImage3.jpg',
+                    link: 'https://wa.me/p/9259881914106956/79013100781',
+                    price: '150',
                 },
                 {
                     id:3,
                     imgTitle:'catalogeImage4',
-                    imgName: 'catalogeImage4.jpg'
+                    imgName: 'catalogeImage4.jpg',
+                    link: 'https://wa.me/p/9577589102356253/79013100781',
+                    price: '220',
                 },
             ],
         }
@@ -81,7 +92,7 @@ export default {
     background-color: #2f49a3a8;
     width: 98%;
     margin: 0 auto;
-    padding: 50px 30px;
+    padding: 50px 30px 30px 30px;
     box-sizing: border-box;
     position: relative;
     height: 100px;
@@ -92,21 +103,21 @@ export default {
     transition: 0.4s all;
     // z-index: 99;
     &-title{
-        position: relative;
+        position: absolute;
         font-family: "Oswald", sans-serif;
         font-optical-sizing: auto;
         font-size: 24px;
         color: #230903;
         position: absolute;
         left: 15px;
-        top: 50%;
+        top: 50px;
         transform: translateY(-50%);
         text-align: left;
         background-color: #F4F2F3;
         padding: 5px 70px 5px 12px;
         border-radius: 5px;
         color: #230903;
-        transition: 0.5s all;
+        transition: 0.2s all;
         cursor: pointer;
         z-index: 99;
         box-shadow: 3px 2px 7px #181818;
@@ -137,16 +148,19 @@ export default {
                 font-family: "Oswald", sans-serif;
                 font-optical-sizing: auto;
                 font-size: 24px;
-                color: #230903;
+                // color: #230903;
                 left: 15px;
                 text-align: left;
-                background-color: #F4F2F3;
+                // background-color: #F4F2F3;
                 padding: 3px 5px 5px 5px;
                 border-radius: 5px;
-                color: #230903;
+                color: #ffff;
                 text-decoration: none;
                 transition: 0.5s all;
                 cursor: pointer;
+                &:hover{
+                    color: #128c7e;
+                }
             }
         }
         
@@ -154,19 +168,26 @@ export default {
 }
 .catalogActive{
     background-color: rgb(95 158 160 / 48%);
-    height: 340px;
-    transition: 0.4s all;
+    // height: 340px;
+    height: 600px;
+    transition: 0.5s all;
+    align-items: flex-end;
+}
+.catalogTitleActive{
+    position: absolute;
+    // top: 40px;
+
 }
 .content{
     &-image{
         // height: 250px;
         display: none;
-        height: 300px;
-        width: 200px;
+        height: 425px;
+        width: 340px;
         position: absolute;
-        left: 900px;
+        left: 50%;
         top: 50%;
-        transform: translate(0, -50%);
+        transform: translate(-50%, -50%);
         z-index: 98;
         img{
             height: 0px;
@@ -233,6 +254,18 @@ export default {
         }
     }
 }
+.price{
+    position: absolute;
+    z-index: 100;
+    bottom: 15px;
+    left: 0px;
+    background-color: brown;
+    padding: 3px 10px 3px 25px;
+    a{
+        font-size: 16px;
+        text-decoration: underline;
+    }
+}
 .opacityLink{
     opacity: 1 !important;
 }
@@ -240,8 +273,8 @@ export default {
     opacity: 1 !important;
 }
 .active{
-    height: 300px !important;
-    width: 200px !important;
+    height: 100% !important;
+    width: 100% !important;
     // left: 235px !important;
     // left: 900px !important;
     left: 0;
