@@ -5,7 +5,7 @@
     </div>
     <div class="contact-map">
       <div class="contact-map_descr">
-        Мы находимся в г.Санкт‑Петербург
+        Мы находимся в г.Санкт‑Петербург, пер.Химический, дом 1, литера О, помещение 2-Н, офис 408
       </div>
       <div style="position:relative;overflow:hidden;">
         <a href="https://yandex.ru/maps/2/saint-petersburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Санкт‑Петербург</a>

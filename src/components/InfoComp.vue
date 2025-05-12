@@ -147,6 +147,7 @@ export default {
         transform: rotate(0deg);
         transition: 0.3s all;
         animation: rotatezero 1s 1 ease-in;
+        color: #fff;
     }
 
 }
@@ -164,15 +165,19 @@ export default {
     }
     25%{
         transform: rotate(-8deg);
+        color: rgb(184, 74, 74);
     }
     50%{
         transform: rotate(22deg);
+        color: rgb(197, 97, 97);
     }
     75%{
         transform: rotate(2deg);
+        color: rgb(165, 132, 132);
     }
     100%{
         transform: rotate(0deg);
+        color: #fff;
     }
 }
 
@@ -182,15 +187,19 @@ export default {
     }
     25%{
         transform: rotate(188deg);
+        color: rgb(53, 103, 196);
     }
     50%{
         transform: rotate(160deg);
+        color: rgb(81, 113, 172);
     }
     75%{
         transform: rotate(190deg);
+        color: rgb(150, 176, 224);
     }
     100%{
         transform: rotate(180deg);
+        color: cornflowerblue;
     }
 }
 

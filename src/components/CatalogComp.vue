@@ -121,10 +121,9 @@ export default {
         cursor: pointer;
         z-index: 99;
         box-shadow: 3px 2px 7px #181818;
-
-        &:hover{
-            // box-shadow: 3px 2px 10px #181818;
-        }
+        // &:hover{
+        //     // box-shadow: 3px 2px 10px #181818;
+        // }
         &:active{
             -webkit-box-shadow: 3px 2px 3px 0px #838282 inset;
             -moz-box-shadow: 3px 2px 3px 0px #838282 inset;
