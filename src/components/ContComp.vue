@@ -44,11 +44,17 @@
     letter-spacing: 0.5px;
     &-map{
       margin: 30px 0;
+      box-sizing: border-box;
       &_descr{
         // color: #fff;
         margin-bottom: 10px;
         // text-shadow: 1px 1px 2px #242424;
         // letter-spacing: 0.5px;
+      }
+      iframe{
+          position: relative;
+          border: 1px solid #000;
+          border-radius: 6px;
       }
     }
     &-icons{
@@ -75,6 +81,7 @@
   color: #18a3e6;
   margin-left: 20px;
 }
+
 </style>
 
 

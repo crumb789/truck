@@ -1,25 +1,29 @@
 <template>
     <div class="info animate__animated animate__fadeInUpBig animate__faster animate__delay-3s">
         <div class="info-title titles">
-            РЕКВИЗИТЫ ООО «ДУКАТ»
+            РЕКВИЗИТЫ ООО «ДУКАТ» 
+            <i :class="{btnInfoActive: infoOpen}" title="Посмотреть реквизиты"
+                @click="infoOpen = !infoOpen" 
+                class="bi bi-caret-down btnInfo">
+            </i>
         </div>
-        <div class="info_list">
-                <div class="list" v-for="info in dataInformation" :key="info.id">
+        <div class="info_list" :class="{infoActive: infoOpen}" >
+                <div  class="list" v-for="info in dataInformation" :key="info.id">
                     <div class="list_name">
                         {{ info.name }}:
                     </div>
-                    <div class="list_value" v-if="info.value">
+                    <div class="list_value" v-if="info.value && infoOpen">
                         {{ info.value }}
                     </div>
-                    <div class="list_adress" v-if="info.adress">
+                    <div class="list_adress" v-if="info.adress && infoOpen" >
                         <a href="https://yandex.ru/maps/-/CHbHvKzI" target="_blank" title="Показать на картах">
                             {{ info.adress }}
                         </a>
                     </div>
-                    <div class="list_phone" v-if="info.phone">
+                    <div class="list_phone" v-if="info.phone && infoOpen">
                         <a href="tel:+79013100781" title="Позвонить нам">{{ info.phone }}</a>                        
                     </div>
-                    <div class="list_email" v-if="info.email">
+                    <div class="list_email" v-if="info.email && infoOpen">
                         <a href="mailto:dukatstroy@gmail.com" title="Написать нам">{{ info.email }}</a>                        
                     </div>
                 </div>
@@ -31,21 +35,25 @@
 export default {
     data() {
         return{
+            infoOpen: false,
             dataInformation: [
                 {   
                     id: 0,
                     name: 'ИНН',
-                    value: '7805817630',
+                    value: '-',
+                    hide: '7805817630',
                 },
                 {   
                     id: 1,
                     name: 'КПП',
-                    value: '780501001',
+                    value: '-',
+                    hide: '780501001',
                 },
                 {   
                     id: 2,
                     name: 'ОГРН',
-                    value: '1247800083607',
+                    value: '-',
+                    hide: '1247800083607',
                 },
                 {   
                     id: 3,
@@ -120,10 +128,72 @@ export default {
     // opacity: 0.8 !important;
     transition: 0.4s all;
     &_list{
-        margin-top: 15px;
-        color: #fff;
+        // margin-top: 15px;
+        // color: #fff;
+        height: 0;
+        overflow: hidden;
+        transition: .2s all;
     }
 }
+.infoActive{
+    margin-top: 15px;
+    color: #fff;
+    overflow: visible;
+    height: 380px;
+}
+.btnInfo{
+    cursor: pointer;
+    &::before{
+        transform: rotate(0deg);
+        transition: 0.3s all;
+        animation: rotatezero 1s 1 ease-in;
+    }
+
+}
+.btnInfoActive{
+    &::before{
+        transform: rotate(180deg);
+        transition: 0.3s all;
+        color: cornflowerblue;
+        animation: rotatedown 1s 1 ease-in-out;
+    }
+}
+@keyframes rotatezero {
+    0%{
+        transform: rotate(180deg);
+    }
+    25%{
+        transform: rotate(-8deg);
+    }
+    50%{
+        transform: rotate(22deg);
+    }
+    75%{
+        transform: rotate(2deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotatedown {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(188deg);
+    }
+    50%{
+        transform: rotate(160deg);
+    }
+    75%{
+        transform: rotate(190deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+
 
 .list{
     display: flex;
