@@ -1,4 +1,5 @@
 <template>
+  <top-menu></top-menu>
   <home-comp></home-comp>
   <btn-top></btn-top>
   <about-company></about-company>
@@ -12,6 +13,7 @@
 
 <script>
 // @ is an alias to /src
+import TopMenu from '@/components/UI/TopMenu.vue'
 import HomeComp from '@/components/HomeComp.vue'
 import AboutCompany from '@/components/AboutCompany.vue'
 import PhilosophyComp from '@/components/PhilosophyComp.vue'
@@ -27,6 +29,7 @@ import FormBack from '@/components/FormBack.vue'
 export default {
   name: 'HomeView',
   components: {
+    TopMenu,
     HomeComp,
     AboutCompany,
     PhilosophyComp,

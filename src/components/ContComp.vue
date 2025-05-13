@@ -1,5 +1,5 @@
 <template>
-  <div class="contact">
+  <div class="contact" id="contact">
     <div class="contact-title titles">
        Обратная связь и контакты
     </div>

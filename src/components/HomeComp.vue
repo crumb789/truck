@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="home" id="home">
         <div class="box-title">
             <img  class="logo" alt="Vue logo" src="../assets/logo.png">
             <h1 class="title">Грузоперевозки
@@ -59,6 +59,7 @@ export default {
         // background-size: 100% 800%;
   scroll-behavior: smooth; ///плавная прокрутка по ссылке по стр
   box-shadow: 3px 3px 11px #181818;
+  margin-top: 56px;
 }
 .title{
   font-family: "Oswald", sans-serif;

@@ -1,5 +1,5 @@
 <template>
-    <div class="about animate__animated animate__fadeInUpBig animate__faster animate__delay-1s">
+    <div class="about animate__animated animate__fadeInUpBig animate__faster animate__delay-1s" id="about">
         <div class="about_title">
             О компании 
             <div class="about_title-descr">
