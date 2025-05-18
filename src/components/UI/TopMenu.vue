@@ -1,5 +1,5 @@
 <template>
-    <div class="menu">
+    <div class="menu" :class="{activeBack: menuBackActive}">
         <nav>
             <ul class="menu_list">
                 <li :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
@@ -19,6 +19,7 @@
 export default {
     data() {
         return{
+            menuBackActive: false,
             dividerHover: 10,
             listMenuItems: [
                 {
@@ -49,6 +50,22 @@ export default {
             ]
         }
     },
+    methods:{
+        handleScrollForMenu(){
+            let howScroll = window.pageYOffset
+
+            if(howScroll > 80){
+                this.menuBackActive = true
+            }
+            else this.menuBackActive = false
+        }
+    },
+    created () {
+        window.addEventListener('scroll', this.handleScrollForMenu);
+    },
+    unmounted () {
+        window.removeEventListener('scroll', this.handleScrollForMenu);
+    },
 }
 </script>
 
@@ -63,7 +80,8 @@ nav{
     width: 1160px;
     left: 50%;
     transform: translate(-50%);
-    background-color: rgba(95, 158, 160, 0.48);
+    // background-color: rgba(95, 158, 160, 0.48);
+    transition: 0.3s all;
     z-index: 100;
     &_list{
         display: flex;
@@ -85,6 +103,10 @@ nav{
             }
         }
     }
+}
+.activeBack{
+    background-color: #5f9ea0;
+    border: 1px solid #3e7375;
 }
 .menuHome{
 

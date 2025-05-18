@@ -11,6 +11,7 @@
             <h2 class="animate__animated animate__lightSpeedInLeft animate__delay-1s "
               @mouseenter="activeCall = true" @mouseleave="activeCall = false"> 
               <span>
+                <img class="spanTruck" :class="{truckHidden: activeCall}" :src="truckIcon" alt="truckIcon">
                 Дукат 
                 <a href="tel:+79013100781" title="Позвонить нам">
                   <i :class="{phoneActive: activeCall}" 
@@ -22,7 +23,7 @@
             <h4>
                 <span>
                 Перевозки любой сложности
-                по всей России и ближнему зарубежью.
+                по всей России и зарубежью.
                 Обеспечим комфорт и уверенность
                 в выполнении грузоперевозок.
                 </span>
@@ -33,9 +34,13 @@
 
 
 <script>
+
+import truckIcon from '@/assets/icons/local_shipping_2.svg'
+
 export default {
   data() {
     return{
+      truckIcon,
       activeCall: false,
     }
     
@@ -67,6 +72,7 @@ export default {
   color: #230903;
   display: flex;
   gap: 5px;
+  align-items: center;
 }
 .logo{
   width: 120px;
@@ -109,11 +115,13 @@ h2{
   text-shadow: 1px 1px 2px #242424;
 
   span{
+    position: relative;
     font-family: "Oswald", sans-serif;
     font-optical-sizing: auto;
     font-size: 24px;
     color: #230903;
     background-color: #F4F2F3;
+    text-decoration: underline;
     width: 150px;
     padding: 5px 12px 5px 70px;
     border-radius: 3px;
@@ -129,10 +137,23 @@ h2{
     
   }
 }
+.spanTruck{
+    height: 35px;
+    position: absolute;
+    left: 34px;
+    transform: scaleX(-1);
+    bottom: -5px;
+    transition: 0.3s all;
+}
+.truckHidden{
+  opacity: 0;
+  left: -20px;
+}
 .phone{
   position: absolute;
   opacity: 0;
   right: 20px;
+  top: 5px;
   transition: 0.4s all;
   color: #2952a4;
   &:hover{

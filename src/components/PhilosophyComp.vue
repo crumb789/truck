@@ -1,15 +1,23 @@
 <template>
-    <div class="philosophy animate__animated animate__fadeInUpBig animate__faster animate__delay-2s">
+    <div class="philosophy animate__animated animate__fadeInUpBig animate__faster animate__delay-2s"
+        :class="{philosophyMoveLeftTop: whereBackMove == 1, philosophyMoveRightTop: whereBackMove == 2,
+            philosophyMoveRightBottom: whereBackMove == 3, philosophyMoveLeftBottom: whereBackMove == 4}">
+        <ul class="philosophy-grid">
+                <li @mouseenter="whereBackMove = 1" @mouseleave="whereBackMove = 0"></li>
+                <li @mouseenter="whereBackMove = 2" @mouseleave="whereBackMove = 0"></li>
+                <li @mouseenter="whereBackMove = 3" @mouseleave="whereBackMove = 0"></li>
+                <li @mouseenter="whereBackMove = 4" @mouseleave="whereBackMove = 0"></li>
+        </ul>
         <div class="philosophy_one">
             <div class="one_title titles">
-                Философия комании
+                Философия компании
                 <div class="divider"></div>
             </div>
             <div class="philosophy_one-content">
-                <span>Цель нашей компании:</span> стать первым партнером крупного бизнеса в России, осуществляя эффективные и бесперебойные перевозки грузов.
+                <span>Цель нашей компании:</span> стать партнером крупного бизнеса в России, осуществляя эффективные и бесперебойные перевозки грузов.
                 <br>
                 <br>
-                <span>Миссия:</span> с каждым днём становиться всё лучше, чтобы в любое время и в любом месте обеспечивать надежные перевозки грузов, помогая крупному бизнесу удовлетворять потребности своих клиентов, расти и развиваться.
+                <span>Миссия:</span> с каждым днём становиться всё лучше, чтобы в любое время и в любом месте обеспечивать надежные перевозки грузов, помогая удовлетворять потребности каждлго клиента, расти и развиваться.
             </div>
         </div>
         <div class="philosophy_two">
@@ -30,6 +38,17 @@
     </div>
 </template>
 
+
+<script>
+export default {
+    data() {
+        return{
+            // backMove: false,
+            whereBackMove: 0,
+        }        
+    },
+}
+</script>
 
 
 <style lang="scss">
@@ -52,9 +71,14 @@
     }
     &_one{
         width: 50%;
+        
         &-content{
             margin-top: 20px;
             text-align: left;
+            background-color: #5f9ea0bd;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
             span{
                 font-weight: 600;
                 color: rgb(242 240 241);
@@ -67,6 +91,11 @@
         &-content{
             text-align: center;
             margin-top: 20px;
+            background-color: #5f9ea0bd;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-left: 5px;
+            border-radius: 10px;
             span{
                 display: block;
                 width: 3px;
@@ -76,6 +105,59 @@
                 margin: 0 auto;
             }
         }
+    }
+    &-grid{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: repeat(2, 50%);
+    }
+    &::before{
+        content: "";
+        background-image: url(/src/assets/images/phil-back.jpg);
+        // -webkit-background-size: 100% 800%;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        // background-size: 100% 800%;
+        opacity: 0.5;
+        position: absolute;
+        z-index: -1;
+        top: 0; left: 0; right: 0; bottom: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+        background-position: center;
+        transition: 1s all;
+    }
+    
+}
+
+.philosophyMoveLeftTop{
+    &::before{
+        background-position-x: left;
+        background-position-y: top;
+    }
+}
+.philosophyMoveRightTop{
+    &::before{
+        background-position-x: right;
+        background-position-y: top;
+    }
+}
+.philosophyMoveRightBottom{
+    &::before{
+        background-position-x: left;
+        background-position-y: bottom;
+    }
+}
+
+.philosophyMoveLeftBottom{
+    &::before{
+        background-position-x: right;
+        background-position-y: bottom;
     }
 }
 
