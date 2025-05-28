@@ -106,7 +106,7 @@ export default {
 .truckImg{
     position: absolute;
     width: 350px;
-    top: 162px;
+    top: 190px;
     z-index: -1;
     opacity: 0.2;
     // right: 110px;

@@ -107,6 +107,8 @@ nav{
 .activeBack{
     background-color: #5f9ea0;
     border: 1px solid #3e7375;
+    border-radius: 0 0 4px 4px;
+    width: 100%;
 }
 .menuHome{
 
