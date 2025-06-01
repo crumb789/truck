@@ -24,7 +24,7 @@ export default {
             listMenuItems: [
                 {
                     id: 0,
-                    name: 'Home',
+                    name: 'Главная',
                     link: '#top'
                 },
                 {

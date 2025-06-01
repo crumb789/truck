@@ -2,12 +2,14 @@
     <div class="home" id="home">
         <div class="box-title">
             <img  class="logo" alt="Vue logo" src="../assets/logo.png">
-            <h1 class="title">Грузоперевозки
-                <img class="russ" src="../assets/icons/russia_1868186.png" alt="russia">
+            <h1 class="title">
+                <!-- <img class="russ" src="../assets/icons/russia_1868186.png" alt="russia"> -->
             </h1> 
         </div>
         <div class="box-descr">
-            <h2 class="box-descr_title">Предложение о сотрудничестве</h2>
+            <h2 class="box-descr_title">Предложение о сотрудничестве 
+              <img class="russ" src="../assets/icons/russia_1868186.png" alt="russia">
+            </h2>
             <h2 class="animate__animated animate__lightSpeedInLeft animate__delay-1s "
               @mouseenter="activeCall = true" @mouseleave="activeCall = false"> 
               <span>
@@ -53,7 +55,7 @@ export default {
   display: flex;
   background-color: #9ebc9f;
   position: relative;
-  padding: 20px 10px;
+  padding: 17px 10px;
   border-radius: 10px;
   align-items: flex-end;
   justify-content: space-between;
@@ -75,7 +77,7 @@ export default {
   align-items: center;
 }
 .logo{
-  width: 120px;
+  width: 210px;
   border-radius: 100%;
 }
 .russ{
@@ -93,13 +95,16 @@ export default {
   &-descr{
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: 525px;
     margin-right: 15px;
     &_title{
       background: rgba(95, 158, 160, 0.8588235294);
       padding: 6px;
       border-radius: 3px;
       box-shadow: 3px 2px 8px #181818;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
   }  
 }

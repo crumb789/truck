@@ -207,6 +207,9 @@ export default {
         &-link{
             opacity: 0;
             transition: 0.5s all;
+            position: absolute;
+            bottom: -31px;
+            right: 22%;
         }
     }
 }
@@ -267,6 +270,10 @@ export default {
 }
 .opacityLink{
     opacity: 1 !important;
+    width: 100%;
+    position: relative;
+    bottom: auto;
+    right: auto;
 }
 .opacityBnts{
     opacity: 1 !important;

@@ -82,6 +82,7 @@ export default {
     display: flex;
     justify-content: space-around;
     background-color: #9ebc9fc9;
+    height: 500px;
     margin: 0 auto;
     padding: 100px 30px;
     box-sizing: border-box;
@@ -235,6 +236,10 @@ export default {
         cursor: pointer;
         font-size: 44px;
         transition: 0.3s all;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         &:hover{
             .divider{
                 width: 58%;
@@ -284,27 +289,27 @@ export default {
     z-index: 50;
     transition: 0.5s all;
     &-one{
-        font-size: 40px;
+        font-size: 60px;
         left: 14%;
         
         color: #52517480;
         animation: lt 3s infinite ease-in;
     }
     &-two{
-        font-size: 35px;
+        font-size: 55px;
         color: #a69cac85;
         animation: rt 4s infinite ease-in;
         right: 25%;
     }
     &-three{
-        font-size: 33px;
+        font-size: 63px;
         color: #348aa777;
         animation: lb 4s infinite ease-in;
         bottom: 15%;
         left: 15%;        
     }
     &-four{
-        font-size: 45px;
+        font-size: 55px;
         color: #513b5681;
         animation: rb 6s infinite ease-in;
         right: 10%;
@@ -316,23 +321,23 @@ export default {
     0%{
         left: 14%;
         top: 2%;
-        font-size: 40px;
+        font-size: 60px;
     }
     25%{
         left: 15%;
         top: 20%;
-        font-size: 37px;
+        font-size: 57px;
     }
     50%{
         left: 16%;
         top: 10%;
-       font-size: 38px;
+       font-size: 58px;
 
     }
     100%{
         left: 14%;
         top: 2%;
-        font-size: 40px;
+        font-size: 60px;
     }
     
 }
@@ -340,23 +345,23 @@ export default {
     0%{
         right: 25%;
         top: 3%;
-        font-size: 35px;
+        font-size: 55px;
     }
     25%{
         right: 26%;
         top: 18%;
-        font-size: 27px;
+        font-size: 47px;
     }
     50%{
         right: 23%;
         top: 17%;
-        font-size: 33px;
+        font-size: 53px;
 
     }
     100%{
         right: 25%;
         top: 3%;
-        font-size: 35px;
+        font-size: 55px;
     }
 }
 
@@ -364,23 +369,23 @@ export default {
     0%{
         right: 10%;
         bottom: 10%;
-        font-size: 50px;
+        font-size: 63px;
     }
     25%{
         right: 15%;
         bottom: 11%;
-        font-size: 52px;
+        font-size: 61px;
     }
     50%{
         right: 12%;
         bottom: 9%;
-        font-size: 44px;
+        font-size: 57px;
 
     }
     100%{
         right: 10%;
         bottom: 10%;
-        font-size: 50px;
+        font-size: 60px;
     }
 }
 
@@ -388,23 +393,23 @@ export default {
     0%{
         bottom: 15%;
         left: 15%;   
-        font-size: 33px;
+        font-size: 53px;
     }
     25%{
         left: 17%;
         bottom: 11%;
-        font-size: 46px;
+        font-size: 56px;
     }
     50%{
         left: 16%;
         bottom: 12%;
-        font-size: 36px;
+        font-size: 56px;
 
     }
     100%{
         left: 15%;
         bottom: 15%;
-        font-size: 33px;
+        font-size: 53px;
     }
 }
 .circleBottom{
