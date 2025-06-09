@@ -4,6 +4,9 @@
         <div class="catalog-title" :class="{catalogTitleActive: imgActive }" @click="imgActive = !imgActive" >
             Каталог
             <i :class="{arrowBack: imgActive }" class="bi bi-arrow-right"></i>
+            <div class="catalog-title_full" :class="{fullLinkActive: imgActive }" >
+                <router-link to="/catalog" target="_blank">полный каталог</router-link>
+            </div>
         </div>
         <div class="catalog_actual">
             <div class="catalog_actual-content">
@@ -129,6 +132,17 @@ export default {
             -moz-box-shadow: 3px 2px 3px 0px #838282 inset;
             box-shadow: 3px 2px 3px 0px #838282 inset;
         }
+        &_full{
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+            z-index: -50;
+            opacity: 0;
+            a{
+                position: relative;
+                z-index: -50;
+            }
+        }
     }
     &_actual{
         &-content{
@@ -175,7 +189,21 @@ export default {
 .catalogTitleActive{
     position: absolute;
     // top: 40px;
-
+}
+.fullLinkActive{
+    left: 105%;
+    z-index: 99;
+    width: 100%;
+    opacity: 1;
+    background-color: #F4F2F3;
+    padding: 0px 0 0 25px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #000;
+    font-size: 20px;
+    a{
+        position: none;
+        z-index: 98;
+    }
 }
 .content{
     &-image{
@@ -189,8 +217,9 @@ export default {
         transform: translate(-50%, -50%);
         z-index: 98;
         img{
-            height: 0px;
-            width: 0px;
+            // height: 0px;
+            // width: 0px;
+            opacity: 0;
             position: absolute;
             top: 0;
             z-index: 98;
@@ -198,7 +227,7 @@ export default {
             border-radius: 15px;
             top: 50%;
             transform: translateY(-50%);
-            transition: 0.5s all;
+            transition: 0.2s all;
             box-sizing: border-box;
             object-fit: cover;   // сохраняет пропорции изображения //
         }
@@ -281,10 +310,11 @@ export default {
 .active{
     height: 100% !important;
     width: 100% !important;
+    opacity: 1 !important;
     // left: 235px !important;
     // left: 900px !important;
     left: 0;
-    transition: 0.5s all;
+    transition: 0.2s all;
     border: 1px solid #2a2a2a;
 }
 .bi-arrow-right::before{
