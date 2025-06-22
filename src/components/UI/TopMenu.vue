@@ -25,27 +25,27 @@ export default {
                 {
                     id: 0,
                     name: 'Главная',
-                    link: '#top'
+                    link: '/#top'
                 },
                 {
                     id: 1,
                     name: 'О нас',
-                    link: '#about'
+                    link: '/#about'
                 },
                 {
                     id: 2,
                     name: 'Каталог',
-                    link: '#catalog'
+                    link: '/#catalog'
                 },
                 {
                     id: 3,
                     name: 'Информация',
-                    link: '#info'
+                    link: '/#info'
                 },
                 {
                     id: 4,
                     name: 'Контакты',
-                    link: '#contact'
+                    link: '/#contact'
                 },
             ]
         }
@@ -110,9 +110,7 @@ nav{
     border-radius: 0 0 4px 4px;
     width: 100%;
 }
-.menuHome{
 
-}
 .divider{
     &-menu{
         position: absolute;

@@ -5,9 +5,12 @@
             Каталог
             <i :class="{arrowBack: imgActive }" class="bi bi-arrow-right"></i>
             <div class="catalog-title_full" :class="{fullLinkActive: imgActive }" >
-                <router-link to="/catalog" target="_blank">полный каталог</router-link>
+                <router-link to="/catalog" target="_blank">архив фотографий</router-link>
             </div>
         </div>
+        <h3 class="title title_catalog titles" v-if="!imgActive">
+            Также мы занимаемся продажей морских контейнеров!
+        </h3>
         <div class="catalog_actual">
             <div class="catalog_actual-content">
                 <div class="content_actual-link" :class="{opacityLink: imgActive}">
@@ -16,7 +19,11 @@
                 </div>  
                 
                 <div :class="{activeImg: actual.id === idImg}" v-for="actual in imagesActual" :key="actual.id" class="content-image">
-                    <img v-if="actual.id === idImg"  :class="{active: imgActive}" :src="require(`../assets/images/${actual.imgName}`)" :alt="actual.imgTitle">
+                    <!-- <img v-if="actual.id === idImg"  :class="{active: imgActive}" :src="require(`../assets/images/${actual.imgName}`)" :alt="actual.imgTitle"> -->
+                    <img v-if="actual.id === idImg"  :class="{active: imgActive}" 
+                        :src="actual.linkStorage" 
+                        :alt="actual.imgTitle">
+
                     <div v-if="actual.id === idImg && imgActive"  class="price">
                        Цена от: 
                        <a :href="actual.link" title="Посмотреть в каталоге">{{ actual.price }}</a>                       
@@ -61,6 +68,7 @@ export default {
                     imgTitle: 'catalogeImage1',
                     imgName: 'catalogeImage1.jpg',
                     link: 'https://wa.me/p/9564548593603056/79013100781',
+                    linkStorage:'https://i.ibb.co/67ZGk96L/cataloge-Image1.jpg',
                     price: '145',
                 },
                 {
@@ -68,6 +76,7 @@ export default {
                     imgTitle:'catalogeImage2',
                     imgName: 'catalogeImage2.jpg',
                     link: 'https://wa.me/p/9595302970492191/79013100781',
+                    linkStorage:'https://i.ibb.co/tpRQ338q/cataloge-Image2.jpg',
                     price: '180',
                 },
                 {
@@ -75,6 +84,7 @@ export default {
                     imgTitle:'catalogeImage3',
                     imgName: 'catalogeImage3.jpg',
                     link: 'https://wa.me/p/9259881914106956/79013100781',
+                    linkStorage:'https://i.ibb.co/HLsH0kSr/cataloge-Image3.jpg',
                     price: '150',
                 },
                 {
@@ -82,6 +92,7 @@ export default {
                     imgTitle:'catalogeImage4',
                     imgName: 'catalogeImage4.jpg',
                     link: 'https://wa.me/p/9577589102356253/79013100781',
+                    linkStorage:'https://i.ibb.co/yct2z92Y/cataloge-Image4.jpg',
                     price: '220',
                 },
             ],
@@ -179,6 +190,14 @@ export default {
         
     }
 }
+
+.title{
+    &_catalog{
+        position: absolute;
+        font-size: 25px;
+    }
+}
+
 .catalogActive{
     background-color: rgb(95 158 160 / 48%);
     // height: 340px;
@@ -193,16 +212,20 @@ export default {
 .fullLinkActive{
     left: 105%;
     z-index: 99;
-    width: 100%;
+    width: 146px;
     opacity: 1;
-    background-color: #F4F2F3;
-    padding: 0px 0 0 25px;
+    background-color: #fffefeba;
+    padding: 0px 0 0 5px;
     border-radius: 3px;
     box-shadow: 1px 1px 3px #000;
     font-size: 20px;
     a{
         position: none;
         z-index: 98;
+        color: #000;
+        &:hover{
+            color: #128c7e;
+        }
     }
 }
 .content{

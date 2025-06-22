@@ -51,7 +51,7 @@ export default {
     }
     a{
         position: absolute;
-        transform: translate(-14px, -3px);
+        transform: translate(-15px, -3px);
         color: #fff;
     }
 }
