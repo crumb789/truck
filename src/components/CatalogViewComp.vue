@@ -1,7 +1,10 @@
 <template>
-    <div class="grid">
+    <div class="grid" :class="{modalActive: modalOn === true}">
         <div class="grid-img" v-for="img in array" :key="img.id">
-            <img :src="img.link" :alt="img.name">
+            <img @click="choiseImg(img.id)"
+            v-if="modalOn === false || modalOn === true && modalId === img.id" 
+            :src="img.link" 
+            :alt="img.name">
         </div>
     </div>
 </template>
@@ -42,16 +45,30 @@ export default {
                     name: 'photo-5',
                 },
                 {
-                    id:5,
+                    id:6,
                     link: 'https://i.ibb.co/rKHTVvkr/photo-6.jpg',
                     name: 'photo-6',
                 },
                 {
-                    id:6,
+                    id:7,
                     link: 'https://i.ibb.co/q3fCkMpr/photo-7.jpg',
                     name: 'photo-7',
                 }
-            ]
+            ],
+            modalOn: false,
+            modalId: 0,
+        }
+    },
+    methods:{
+        choiseImg(id){
+            if(this.modalId !== id){
+                this.modalId = id
+                this.modalOn = true
+            }
+            else{
+                this.modalId = false
+                this.modalOn = false
+            }
         }
     },
 }
@@ -68,13 +85,33 @@ export default {
     align-items: self-end;
     &-img{
         img{
+            border: 2px solid #1c65a8;
+            border-radius: 20px;
             width: 100%;
             height: 350px;
             object-fit: cover;
-            cursor: crosshair;
+            cursor: pointer;
         }
     }
 }
-
+.modalActive{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    z-index: 100;
+    background-color: #000000a1;
+    transition: 0.3s all;
+    
+    img{
+        width: 70%;
+        height: 70%;
+        object-fit: cover;
+    }
+}
 </style>
 
