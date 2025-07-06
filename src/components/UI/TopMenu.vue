@@ -66,7 +66,7 @@ export default {
                 {
                     id: 5,
                     name: 'Архив',
-                    link: '/catalog'
+                    link: '/policy'
                 },
             ],
             listMenuItemsContacts: [
