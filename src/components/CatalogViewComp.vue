@@ -1,10 +1,20 @@
 <template>
     <div class="grid" :class="{modalActive: modalOn === true}">
-        <div class="grid-img" v-for="img in array" :key="img.id">
-            <img @click="choiseImg(img.id)"
+        <div class="grid-img" v-for="img in array" :key="img.id" :class="{imgActive: modalOn}">
+            <img @click="choiseImg(img.id)" @mouseenter="console.log(img.id)"
             v-if="modalOn === false || modalOn === true && modalId === img.id" 
             :src="img.link" 
             :alt="img.name">
+            <div class="modalActive_btns" v-if="modalOn && modalId === img.id">
+                <div @click="removeToId" v-if="modalId > 0"
+                    class="modalActive_btns-left">
+                        <i class="bi bi-caret-left"></i>
+                </div>
+                <div @click="addToId" v-if="modalId < array.length -1 "  
+                    class="modalActive_btns-right">
+                        <i class="bi bi-caret-right"></i>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -69,6 +79,12 @@ export default {
                 this.modalId = false
                 this.modalOn = false
             }
+        },
+        addToId(){
+                this.modalId = this.modalId + 1
+        },
+        removeToId(){
+            this.modalId = this.modalId - 1
         }
     },
 }
@@ -94,6 +110,9 @@ export default {
         }
     }
 }
+.imgActive{
+    position: absolute;
+}
 .modalActive{
     position: fixed;
     width: 100vw;
@@ -106,12 +125,29 @@ export default {
     z-index: 100;
     background-color: #000000a1;
     transition: 0.3s all;
+    &_btns{
+        position: absolute;
+        font-size: 60px;
+        width: 100%;
+        top: 50%;
+        &-left{
+            position: inherit;
+            left: 8%;
+            cursor: pointer;
+        }
+        &-right{
+            position: inherit;
+            right: 8%;
+            cursor: pointer;
+        }
+    }
     
     img{
         width: 70%;
         height: 70%;
         object-fit: cover;
     }
+    
 }
 </style>
 

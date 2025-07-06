@@ -17,10 +17,15 @@
                         @mouseleave="dividerHover = 10"
                     v-for="item in listMenuItemsContacts" :key="item.id" class="menu_item">
                         <!-- <a :href="item.link">{{ item.name }}</a> -->
-                        <router-link :to="item.link">{{ item.name }}</router-link>
+
+                        <router-link :to="item.link" exact>{{ item.name }}</router-link>
                         <div :class="{activeDivider: dividerHover == item.id  }" 
-                            class="divider divider-menu">
-                        </div>                        
+                        class="divider divider-menu">
+                    </div>                        
+                </li>
+                <li>
+                    <router-link to="/catalog" exact>Архив</router-link>
+
                 </li>
             </ul>
         </nav>
@@ -91,11 +96,11 @@ export default {
                     name: 'Контакты',
                     link: '/#contact'
                 },
-                {
-                    id: 5,
-                    name: 'Архив',
-                    link: '/catalog'
-                },
+                // {
+                //     id: 5,
+                //     name: 'Архив',
+                //     link: '/catalog'
+                // },
             ]
         }
     },
