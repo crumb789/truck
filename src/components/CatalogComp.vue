@@ -5,7 +5,7 @@
             Каталог
             <i :class="{arrowBack: imgActive }" class="bi bi-arrow-right"></i>
             <div class="catalog-title_full" :class="{fullLinkActive: imgActive }" >
-                <router-link to="/catalog" target="_blank">архив фотографий</router-link>
+                <router-link :to="{ name: 'catalogs' }" target="_blank">архив фотографий</router-link>
             </div>
         </div>
         <h3 class="title title_catalog titles" v-if="!imgActive">
