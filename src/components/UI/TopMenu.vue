@@ -24,8 +24,7 @@
                     </div>                        
                 </li>
                 <li>
-                    <router-link to="/catalog" exact>Архив</router-link>
-
+                    
                 </li>
             </ul>
         </nav>

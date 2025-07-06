@@ -4,6 +4,8 @@
             <a href="#">
                 <img :src="logoCrumb" alt="logoDev">
             </a>
+            
+            <router-link to="/catalog" exact>Архив</router-link>
         </div>
     </footer>
 </template>
