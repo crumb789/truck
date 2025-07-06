@@ -1,11 +1,23 @@
 <template>
     <div class="menu" :class="{activeBack: menuBackActive}">
         <nav>
-            <ul class="menu_list">
+            <ul class="menu_list" v-if="this.$route.name == 'home'">
                 <li :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
                         @mouseleave="dividerHover = 10"
                     v-for="item in listMenuItems" :key="item.id" class="menu_item">
                         <a :href="item.link">{{ item.name }}</a>
+                        <div :class="{activeDivider: dividerHover == item.id  }" 
+                            class="divider divider-menu">
+                        </div>                        
+                </li>
+            </ul>
+
+            <ul class="menu_list" v-if="this.$route.name == 'catalog'">
+                <li :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
+                        @mouseleave="dividerHover = 10"
+                    v-for="item in listMenuItemsContacts" :key="item.id" class="menu_item">
+                        <!-- <a :href="item.link">{{ item.name }}</a> -->
+                        <router-link :to="item.link">{{ item.name }}</router-link>
                         <div :class="{activeDivider: dividerHover == item.id  }" 
                             class="divider divider-menu">
                         </div>                        
@@ -22,6 +34,38 @@ export default {
             menuBackActive: false,
             dividerHover: 10,
             listMenuItems: [
+                {
+                    id: 0,
+                    name: 'Главная',
+                    link: '#top'
+                },
+                {
+                    id: 1,
+                    name: 'О нас',
+                    link: '#about'
+                },
+                {
+                    id: 2,
+                    name: 'Каталог',
+                    link: '#catalog'
+                },
+                {
+                    id: 3,
+                    name: 'Информация',
+                    link: '#info'
+                },
+                {
+                    id: 4,
+                    name: 'Контакты',
+                    link: '#contact'
+                },
+                {
+                    id: 5,
+                    name: 'Архив',
+                    link: '/catalog'
+                },
+            ],
+            listMenuItemsContacts: [
                 {
                     id: 0,
                     name: 'Главная',
@@ -47,6 +91,11 @@ export default {
                     name: 'Контакты',
                     link: '/#contact'
                 },
+                {
+                    id: 5,
+                    name: 'Архив',
+                    link: '/catalog'
+                },
             ]
         }
     },
@@ -58,6 +107,11 @@ export default {
                 this.menuBackActive = true
             }
             else this.menuBackActive = false
+        }
+    },
+    computed:{
+        page(){
+            return this.$route.name
         }
     },
     created () {
@@ -86,7 +140,7 @@ nav{
     &_list{
         display: flex;
         justify-content: center;
-        column-gap: 160px;
+        column-gap: 150px;
     }
     &_item{
         transition: 0.3s all;
