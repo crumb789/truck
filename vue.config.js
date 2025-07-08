@@ -6,6 +6,14 @@ module.exports = defineConfig({
   ? '/truck/'
   : '/', 
 
+  
+  devServer: {
+    historyApiFallback: {
+      rewrites: [
+        { from: /./, to: '/truck/index.html' }
+      ]
+    }
+  }
 })
 
 
