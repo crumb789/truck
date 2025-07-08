@@ -12,19 +12,16 @@
                 </li>
             </ul>
 
-            <ul class="menu_list" v-if="this.$route.name == 'catalog'">
+            <ul class="menu_list" v-if="this.$route.name == 'catalogs'">
                 <li :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
                         @mouseleave="dividerHover = 10"
                     v-for="item in listMenuItemsContacts" :key="item.id" class="menu_item">
-                        <!-- <a :href="item.link">{{ item.name }}</a> -->
 
                         <router-link :to="item.link" exact>{{ item.name }}</router-link>
+                        
                         <div :class="{activeDivider: dividerHover == item.id  }" 
                         class="divider divider-menu">
                     </div>                        
-                </li>
-                <li>
-                    
                 </li>
             </ul>
         </nav>
@@ -66,7 +63,7 @@ export default {
                 {
                     id: 5,
                     name: 'Архив',
-                    link: '/policy'
+                    link: '/catalogs'
                 },
             ],
             listMenuItemsContacts: [
@@ -95,11 +92,11 @@ export default {
                     name: 'Контакты',
                     link: '/#contact'
                 },
-                // {
-                //     id: 5,
-                //     name: 'Архив',
-                //     link: '/catalog'
-                // },
+                {
+                    id: 5,
+                    name: 'Архив',
+                    link: '/catalogs'
+                },
             ]
         }
     },

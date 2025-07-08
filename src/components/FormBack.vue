@@ -12,7 +12,7 @@
             <button class="button">Отправить</button>
 
             <div class="policy">
-                <router-link to="/policy">Политика конфиденциальности</router-link>
+                <router-link to="/policy" target="_blank" >Политика конфиденциальности</router-link>
             </div>
         </form>
     </div>
