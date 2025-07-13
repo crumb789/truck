@@ -12,14 +12,17 @@
                 </li>
             </ul>
 
-            <ul class="menu_list" v-if="this.$route.name == 'catalogs'">
+            <ul class="menu_list" v-if="this.$route.name == 'catalogview'">
                 <li :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
                         @mouseleave="dividerHover = 10"
                     v-for="item in listMenuItemsContacts" :key="item.id" class="menu_item">
 
                         <router-link :to="item.link" exact>{{ item.name }}</router-link>
-                        
+
+                        <router-link :to="{ name: item.link }" >{{ item.name }}</router-link>  
+
                         <div :class="{activeDivider: dividerHover == item.id  }" 
+
                         class="divider divider-menu">
                     </div>                        
                 </li>
@@ -63,7 +66,7 @@ export default {
                 {
                     id: 5,
                     name: 'Архив',
-                    link: '/catalogs'
+                    link: '/catalogview'
                 },
             ],
             listMenuItemsContacts: [
@@ -95,7 +98,7 @@ export default {
                 {
                     id: 5,
                     name: 'Архив',
-                    link: '/catalogs'
+                    link: 'catalogview'
                 },
             ]
         }

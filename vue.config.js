@@ -18,7 +18,7 @@ module.exports = defineConfig({
     historyApiFallback: {
       disableDotRule: true,
       rewrites: [
-        { from: /\/catalog/, to: '/index.html' }, // явно для /catalog
+        { from: /\/catalogs/, to: '/index.html' }, // явно для /catalog
         { from: /./, to: '/index.html' } // fallback для всех остальных маршрутов
       ]
     },
