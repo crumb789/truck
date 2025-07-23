@@ -135,6 +135,13 @@ nav{
     padding: 15px;
 }
 .menu{
+    background-color: #5f9ea06e;
+    // border: 1px solid #3e7375;
+    box-shadow: 2px 2px 2px #00000033;
+    border-radius: 0 0 4px 4px;
+    width: 60%;
+    height: 55px;
+
     border-radius: 5px;
     position: fixed;
     top: 0;
@@ -166,7 +173,7 @@ nav{
     }
 }
 .activeBack{
-    background-color: #5f9ea0;
+    background-color: #5f9ea0f7;
     border: 1px solid #3e7375;
     border-radius: 0 0 4px 4px;
     width: 100%;

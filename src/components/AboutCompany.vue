@@ -54,7 +54,8 @@ export default {
 
 <style lang="scss">
 .about{
-    background-color: rgb(95 158 160 / 48%);
+    // background-color: rgb(95 158 160 / 48%);
+    background: linear-gradient(#2de9ef00, #7ea2a37a);
     width: 98%;
     margin: 0 auto;
     padding: 50px 30px;

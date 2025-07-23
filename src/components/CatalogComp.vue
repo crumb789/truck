@@ -1,5 +1,5 @@
 <template>
-    <div class="catalog animate__animated animate__fadeInLeftBig animate__faster animate__delay-2s" id="catalog"
+    <div class="catalog animate__animated animate__fadeInLeftBig animate__faster animate__delay-2s" 
         :class="{catalogActive: imgActive }">
         <div class="catalog-title" :class="{catalogTitleActive: imgActive }" @click="imgActive = !imgActive" >
             Каталог

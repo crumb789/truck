@@ -11,7 +11,7 @@
                     <i :class="{circleTop: whereBackMove == 2}" 
                     class="bi bi-circle-fill circle circle-two"></i>
                 </li>
-                <li @mouseenter="whereBackMove = 3" @mouseleave="whereBackMove = 0">
+                <li @mouseenter="whereBackMove = 3" @mouseleave="whereBackMove = 0" id="catalog">
                     <i :class="{circleBottom: whereBackMove == 3}" 
                     class="bi bi-circle-fill circle circle-three"></i>
                 </li>

@@ -44,10 +44,12 @@ export default {
 <style lang="scss">
 .catalog{
   &.view{
-    min-height: 1400px;
+    min-height: 1280px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: 55px;
+    border-radius: 8px;
   }
 }
-</style>
+</style> 

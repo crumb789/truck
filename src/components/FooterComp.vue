@@ -1,9 +1,10 @@
 <template>
     <footer class="footer">
         <div class="footer footer_links">
-            <a href="#">
+            <a href="https://t.me/crumb789" target="_blank">
                 <img :src="logoCrumb" alt="logoDev">
             </a>
+            2025 <i class="bi bi-c-circle"></i>
         </div>
     </footer>
 </template>
@@ -30,6 +31,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5px;
     &_links{
         img{
             height: 65px;

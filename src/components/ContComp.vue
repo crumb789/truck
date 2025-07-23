@@ -1,5 +1,5 @@
 <template>
-  <div class="contact" id="contact">
+  <div class="contact animate__animated animate__fadeInUpBig animate__faster animate__delay-3s" id="contact">
     <div class="contact-title titles">
        Обратная связь и контакты
     </div>
