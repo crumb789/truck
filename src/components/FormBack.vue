@@ -16,8 +16,16 @@
                 <input type="checkbox" id="check" name="check" title="Согласиться с политикой конфиденциальности" required> 
             </div>
 
-            <button class="button">Отправить</button>
-
+            <button class="button">
+                Отправить 
+                <i v-if="loaderShow" class="loader"></i>
+            </button>
+                <div v-if="showMessage" class="message mt-2">
+                   Отправлено!
+                </div>
+                <div v-if="showMessageFalse" class=" message message-false mt-2">
+                    Ошибка отправки...
+                </div>
         </form>
     </div>
 </template>
@@ -35,7 +43,10 @@ export default {
             PhonePersonal:'',
             MessagePersonal: '',
 
-            loaderShow: false
+            loaderShow: false,
+            showMessage: false,
+            showMessageFalse: false,
+
         }
     },
     computed:{
@@ -48,6 +59,9 @@ export default {
             this.sendEmail()
 
             // onSubmit()
+        },
+        deleteString(){
+            this.MessagePersonal = ''
         },
         async sendEmail() {
             // формируем данные для письма, в шаблоне отображение по имени ключа
@@ -72,8 +86,7 @@ export default {
                     console.log('Sending error...try later', error.text);                    
                     this.showMessageFalse = true
                     this.loaderShow = false
-                    setTimeout(() => this.showMessage = false, 
-                    3000)
+                    setTimeout(() => this.showMessage = false, 3000)
                 }) 
 
         },
@@ -148,5 +161,13 @@ export default {
     &::placeholder{
         color: #ffffff9d;
     }
+}
+.button{
+    position: relative;
+}
+.loader{
+    position: absolute;
+    right: -32px;
+    font-size: x-large;
 }
 </style>
