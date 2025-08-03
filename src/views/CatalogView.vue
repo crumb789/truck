@@ -42,14 +42,21 @@ export default {
 </script>
 
 <style lang="scss">
+h2{
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    padding-bottom: 15px;
+}
 .catalog{
   &.view{
     min-height: 1280px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin-top: 55px;
+    margin-top: 70px;
     border-radius: 8px;
+    box-shadow: 0px 0px 8px #181818;
+    padding: 25px 30px 30px 30px;
   }
 }
 </style> 

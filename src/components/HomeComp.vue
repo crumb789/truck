@@ -66,7 +66,7 @@ export default {
         // background-size: 100% 800%;
   scroll-behavior: smooth; ///плавная прокрутка по ссылке по стр
   box-shadow: 3px 3px 11px #181818;
-  margin-top: 56px;
+  margin-top: 65px;
 }
 .title{
   font-family: "Oswald", sans-serif;
@@ -104,7 +104,7 @@ export default {
       box-shadow: 3px 2px 8px #181818;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-around;
     }
   }  
 }

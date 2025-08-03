@@ -9,7 +9,7 @@
 
             <input class="input" type="tel" name="phone" placeholder="Телефон для связи" minlength="10" maxlength="12" v-model="PhonePersonal" />
 
-            <textarea class="textarea" placeholder="Короткое сообщение" v-model="MessagePersonal"></textarea>
+            <textarea class="textarea" placeholder="Короткое сообщение" v-model="MessagePersonal" required></textarea>
             
             <div class="policy">
                 <router-link to="/policy" target="_blank" >Политика конфиденциальности</router-link> 
@@ -102,8 +102,8 @@ export default {
     // justify-content: space-around;
 
     border-top: 1px solid #2a2a2a;  /* gradient */
-    box-shadow: 0px -3px 10px #2a2a2a; /* gradient */
-    background: linear-gradient(181deg, rgb(158 188 159 / 78%), #1c65a800);  /* gradient */
+    // box-shadow: 0px -3px 10px #2a2a2a; /* gradient */
+    background: linear-gradient(180deg, rgb(158 188 159 / 78%), #1c65a800);  /* gradient */
 
 
     // background-color: #9ebc9fc9; !!!!!!!!ne gradient
@@ -112,11 +112,11 @@ export default {
     box-sizing: border-box;
     position: relative;
     z-index: 99;
-    border-radius: 8px;
+    border-radius: 8px 8px 0 0;
     // border: 1px solid #2a2a2a; !!!!!!!!!!!!ne gradient
     // box-shadow: 0px -1px 11px #3e3e3e; ne !!!!!!!!!!!gradient
     // opacity: 0.8 !important;
-    transition: 4s all;
+    transition: 0.4s all;
     &-title{
         margin-bottom: 30px;
     }
@@ -140,6 +140,9 @@ export default {
         gap: 20px;
         a{
             color: #2a2a2a;
+            &:hover{
+                color: #1b1836ad;
+            }
         }
         #check{
            width: 20px !important; 

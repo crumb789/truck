@@ -1,7 +1,7 @@
 <template>
     <div class="grid" :class="{modalActive: modalOn === true}">
         <div class="grid-img" v-for="img in array" :key="img.id" :class="{imgActive: modalOn}">
-            <img @click="choiseImg(img.id)" @mouseenter="console.log(img.id)"
+            <img @click="choiseImg(img.id)" @mouseenter="console.log(img.id)" title="Открыть/закрыть"
             v-if="modalOn === false || modalOn === true && modalId === img.id" 
             :src="img.link" 
             :alt="img.name">
@@ -63,7 +63,7 @@ export default {
                     id:7,
                     link: 'https://i.ibb.co/q3fCkMpr/photo-7.jpg',
                     name: 'photo-7',
-                }
+                },
             ],
             modalOn: false,
             modalId: 0,

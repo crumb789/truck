@@ -32,9 +32,15 @@ export default {
     align-items: center;
     justify-content: center;
     gap: 5px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
     &_links{
         img{
             height: 65px;
+            transition: 0.1s all;
+            &:hover{
+                height: 68px;
+            }
         }
     }
 }
