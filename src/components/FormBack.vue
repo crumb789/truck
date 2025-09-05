@@ -145,7 +145,7 @@ export default {
             }
         }
         #check{
-           width: 20px !important; 
+           width: 22px !important; 
            margin: 0 auto !important;
            cursor: pointer !important;
         }
@@ -172,5 +172,27 @@ export default {
     position: absolute;
     right: -32px;
     font-size: x-large;
+}
+
+@media(max-width: 769px){
+    .form{
+        input{
+            font-size: 20px;
+        }
+        textarea{
+            font-size: 20px;
+        }
+    }
+    .policy{
+        a{
+            font-size: 22px;
+        }
+    }
+    .button{
+        font-size: 22px;
+    }
+    .message{
+        font-size: 20px;
+    }
 }
 </style>

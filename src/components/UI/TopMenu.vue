@@ -1,8 +1,8 @@
 <template>
-    <div class="menu" :class="{activeBack: menuBackActive}">
+    <div class="menu" v-if="activeSide || widthFromVuex > 425" :class="{activeBack: menuBackActive}">
         <nav>
             <ul class="menu_list" v-if="this.$route.name == 'home'">
-                <li :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
+                <li @click="activeSide = false" :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
                         @mouseleave="dividerHover = 10"
                     v-for="item in listMenuItems" :key="item.id" class="menu_item">
                         <a  v-if="item.id < 5" :href="item.link">{{ item.name }}</a>
@@ -16,7 +16,7 @@
             </ul>
 
             <ul class="menu_list" v-if="this.$route.name == 'catalogview'">
-                <li :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
+                <li @click="activeSide = false" :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
                         @mouseleave="dividerHover = 10"
                     v-for="item in listMenuItemsContacts" :key="item.id" class="menu_item">
 
@@ -31,15 +31,29 @@
                 </li>
             </ul>
         </nav>
+        
+    </div>
+    <div class="btns btns-box">
+        <div class="open sideBtns animate__animated animate__rubberBand" 
+            v-if="!activeSide && widthFromVuex < 426" @click="activeSide = true">
+            <i class="bi bi-list"></i>
+        </div>
+        <div div class="close sideBtns animate__animated animate__jello" 
+            v-if="activeSide && widthFromVuex < 426" @click="activeSide = false">
+            <i class="bi bi-x-lg"></i>
+        </div>
     </div>
 </template>
 
 <script>
+
 export default {
     data() {
         return{
+            widthScreen: 0,
             menuBackActive: false,
             dividerHover: 10,
+            activeSide: false,
             listMenuItems: [
                 {
                     id: 0,
@@ -114,15 +128,59 @@ export default {
                 this.menuBackActive = true
             }
             else this.menuBackActive = false
-        }
+        },
+        myEventHandler(e){
+            console.log(e)
+            console.log('111')
+
+        },
+        menuShow(){
+            if(this.widthScreen > 426){
+                this.activeSide = false
+                // console.log('side menu false')
+                setTimeout(()=> {
+                    this.activeSide = true
+                },1000)
+            }
+            if(this.widthScreen < 426){
+                this.activeSide = true
+                // console.log('side menu true')
+            }
+        },
+
     },
     computed:{
         page(){
             return this.$route.name
+        },
+        widthFromVuex(){
+            return this.$store.state.width
         }
     },
     created () {
         window.addEventListener('scroll', this.handleScrollForMenu);
+        
+        window.addEventListener('resize' , () => {
+            this.widthScreen = document.documentElement.clientWidth;
+            // console.log(this.widthScreen, 'new screen size')
+
+            this.menuShow()
+        })
+
+        window.addEventListener("load", function () {
+            // console.log("All resources finished loading!");
+            // const windowWidth = ref(window.innerWidth)
+            // this.widthScreen = windowWidth.value
+            // console.log(this.widthScreen)
+
+
+            window.addEventListener('resize' , () => {
+            this.widthScreen = document.documentElement.clientWidth;
+        })
+        });
+    },
+    mounted(){
+
     },
     unmounted () {
         window.removeEventListener('scroll', this.handleScrollForMenu);
@@ -171,9 +229,26 @@ nav{
             }
         }
     }
+    &-close{
+        
+    }
+    &-open{
+
+    }
+}
+.sideBtns{
+    font-size: 68px;
+    position: relative;
+    cursor: pointer;
+    // top: 50px;
+    // left: 50px;
+    color: #000;
+    z-index: 101;
 }
 .activeBack{
-    background-color: #5f9ea0f7;
+    // background-color: #5f9ea0f7;
+    background-color: rgb(95 158 160 / 69%);
+    backdrop-filter: blur(1rem);
     border: 1px solid #3e7375;
     border-radius: 0 0 4px 4px;
     width: 100%;
@@ -189,4 +264,64 @@ nav{
 .activeDivider{
     width: 5% !important;
 }
+.btns{
+    &-box{
+        display: none;
+
+        top: 50px;
+        left: 50px;
+        border: 1px solid #a9a9a91c;
+        height: 96px;
+        position: fixed;
+        width: 100px;
+        z-index: 100;
+        background-color: rgb(95 158 160 / 10%);
+        backdrop-filter: blur(.2rem);
+        border-radius: 10px;
+    }
+}
+
+@media(max-width: 1025px){
+    .menu{
+        width: 100%;
+        &_list{
+            column-gap: 125px;
+        }
+    }
+}
+
+@media(max-width: 769px){
+    .menu{
+        height: 60px;
+        width: 100%;
+        &_list{
+            column-gap: 75px;
+            font-size: 20px;
+        }
+    }
+}
+@media(max-width: 426px){
+    .menu{
+        background-color: rgb(95 158 160 / 90%);
+        backdrop-filter: blur(1rem);
+        height: 100%;
+        width: 100%;
+        &_list{
+            font-size: 50px;
+            margin-top: 110px;
+            gap: 78px;
+            flex-direction: column;
+            display: flex;
+        }
+    }
+    .btns{
+        &-box{
+            display: block;
+        }
+    }
+    .activeDivider{
+        width: 25% !important;
+    }
+}
+
 </style>

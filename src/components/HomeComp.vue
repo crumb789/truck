@@ -57,7 +57,8 @@ export default {
   position: relative;
   padding: 17px 10px;
   border-radius: 10px;
-  align-items: flex-end;
+  // align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   background-image: url(/src/assets/images/shutterstock_1546486415-scaled.jpg);
   // -webkit-background-size: 100% 800%;
@@ -183,5 +184,37 @@ h4{
     /* text-wrap-style: balance; */
     text-shadow: 1px 1px 2px #242424;
     letter-spacing: 0.5px;
+}
+
+@media(max-width: 769px){
+  .home{
+
+  }
+  .box{
+    &-descr{
+      width: 640px;
+      &_title{
+        font-size: 35px;
+        .russ{
+          width: 60px;
+        }
+      }
+      h2{
+        span{
+          font-size: 40px;
+        }
+      }
+      h4{
+        span{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .spanTruck{
+    height: 50px;
+    left: 22px;
+  }
 }
 </style>

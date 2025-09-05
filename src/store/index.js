@@ -1,7 +1,14 @@
 import { createStore } from 'vuex'
 
+
+import { ref } from 'vue'
+
+const windowWidth = ref(window.innerWidth)
+console.log(windowWidth.value, 'vuex')
+
 export default createStore({
   state: {
+    width: windowWidth.value,
     contactData: [
       {   
           id: 0,
@@ -85,6 +92,9 @@ export default createStore({
 
   },
   getters: {
+    widthUserScreen(){
+        return 1
+    }
   },
   mutations: {
   },

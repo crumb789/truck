@@ -8,6 +8,7 @@
   <info-comp></info-comp>
   <cont-comp></cont-comp>
   <form-back></form-back>
+  <footer-divider></footer-divider>
   <footer-comp></footer-comp>
 </template>
 
@@ -23,6 +24,7 @@ import InfoComp from '@/components/InfoComp.vue'
 import BtnTop from '@/components/UI/BtnTop.vue'
 import ContComp from '@/components/ContComp.vue'
 import FormBack from '@/components/FormBack.vue'
+import FooterDivider from '@/components/UI/FooterDivider.vue'
 
 
 
@@ -38,7 +40,8 @@ export default {
     FooterComp,
     BtnTop,
     ContComp,
-    FormBack    
+    FormBack,
+    FooterDivider    
   }
 }
 </script>

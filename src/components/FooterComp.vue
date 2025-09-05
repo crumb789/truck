@@ -44,5 +44,11 @@ export default {
         }
     }
 }
+
+@media(max-width: 769px){
+    .footer{
+        font-size: 22px;
+    }
+}
 </style>
 

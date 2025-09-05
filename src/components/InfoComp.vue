@@ -8,7 +8,7 @@
             </i>
         </div>
         <div class="info_list" :class="{infoActive: infoOpen}" >
-                <div  class="list" v-for="info in dataInformation" :key="info.id">
+                <div  class="list" :class="{DsBlock: infoOpen}" v-for="info in dataInformation" :key="info.id">
                     <div class="list_name">
                         {{ info.name }}:
                     </div>
@@ -106,7 +106,7 @@ export default {
                     id: 11,
                     name: 'Генеральный директор',
                     value: 'Мищенко Михаил Валерьевич',
-                }
+                },
             ],
         }
     },
@@ -127,19 +127,30 @@ export default {
     box-shadow: 0px -1px 5px #3e3e3e;
     // opacity: 0.8 !important;
     transition: 0.4s all;
+    min-height: 138px;
+    max-height: auto;
     &_list{
         // margin-top: 15px;
         // color: #fff;
-        height: 0;
+        // height: 10%;
+        display: none;
         overflow: hidden;
-        transition: .2s all;
+        transition: 0.2s all;
     }
 }
 .infoActive{
     margin-top: 15px;
     color: #fff;
     overflow: visible;
-    height: 380px;
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.4s all;
+}
+.DsBlock{
+    display: block;
+    transition: 0.4s all;
 }
 .btnInfo{
     cursor: pointer;
@@ -220,6 +231,12 @@ export default {
     }
     a{
         color: #fff;
+    }
+}
+
+@media(max-width: 769px){
+    .infoActive{
+        font-size: 20px;
     }
 }
 </style>

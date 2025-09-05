@@ -132,4 +132,22 @@ export default {
         right: 110px;
     }
 }
+
+@media(max-width: 769px){
+    .about{
+        &_title{
+            font-size: 30px;
+            &-descr{
+                font-size: 24px;
+            }
+        }
+    }
+    .boxes{
+        font-size: 20px;
+        letter-spacing: 0.3px;
+    }
+    .truckImg {
+        top: 250px;
+    }
+}
 </style>

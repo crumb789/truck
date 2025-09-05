@@ -41,18 +41,27 @@ export default {
     z-index: 100;
     font-size: 30px;
     display: none;
-    left: 17%;
+    left: 19.5%;
     height: 40px;
     width: 40px;
     transition: 0.3s all;
     &:hover{
         border-radius: 100%;
-        background-color: steelblue;
+        // background-color: rgba(70, 131, 180, 0.664);
+        background-color: transparent;
+        backdrop-filter: blur(1rem);
+        border: solid 0.5px #7ea6a2a1;
+        a{
+            i{
+                color: #5f9ea0;
+            }
+        }
     }
     a{
         position: absolute;
         transform: translate(-15px, -3px);
         color: #fff;
+        
     }
 }
 .activeBTN{

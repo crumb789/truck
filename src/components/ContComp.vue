@@ -108,6 +108,22 @@
     animation: none;
   }
 }
+
+@media(max-width: 769px){
+  .contact{
+    &-map{
+      &_descr{
+        font-size: 22px;
+      }
+    }
+    &-text{
+      font-size: 22px;
+    }
+    &-icons{
+      font-size: 22px;
+    }
+  }
+}
 </style>
 
 

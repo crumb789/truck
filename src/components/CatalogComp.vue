@@ -329,6 +329,7 @@ export default {
 }
 .opacityBnts{
     opacity: 1 !important;
+    backdrop-filter: blur(1px);
 }
 .active{
     height: 100% !important;
@@ -348,6 +349,35 @@ export default {
     &.bi-arrow-right::before{
         transform: rotate(180deg);
         transition: 0.5s all;
+    }
+}
+
+@media(max-width: 769px){
+    .catalog{
+        &-title{
+            font-size: 30px;
+        }
+    }
+    .title{
+        &_catalog{
+            font-size: 30px;
+            margin-left: 120px;
+        }
+    }
+    .fullLinkActive{
+        a{
+            font-size: 20px;
+        }
+    }
+    .price{
+        font-size: 20px;
+    }
+    .content{
+        &_actual{
+            &-link{
+                font-size: 22px;
+            }
+        }
     }
 }
 </style>

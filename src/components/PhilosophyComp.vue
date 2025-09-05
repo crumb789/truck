@@ -436,4 +436,17 @@ export default {
             }
         }
 }
+
+@media(max-width: 769px){
+    .titles{
+        font-size: 30px;
+    }
+    .two_title{
+        font-size: 60px;
+    }
+    .activeItem{
+        font-size: 30px;
+        width: 75%;
+    }
+}
 </style>
