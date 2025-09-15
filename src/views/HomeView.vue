@@ -1,5 +1,6 @@
 <template>
   <top-menu></top-menu>
+  <side-menu></side-menu>
   <home-comp></home-comp>
   <btn-top></btn-top>
   <about-company></about-company>
@@ -15,6 +16,7 @@
 <script>
 // @ is an alias to /src
 import TopMenu from '@/components/UI/TopMenu.vue'
+import SideMenu from '@/components/UI/SideMenu.vue'
 import HomeComp from '@/components/HomeComp.vue'
 import AboutCompany from '@/components/AboutCompany.vue'
 import PhilosophyComp from '@/components/PhilosophyComp.vue'
@@ -32,6 +34,7 @@ export default {
   name: 'HomeView',
   components: {
     TopMenu,
+    SideMenu,
     HomeComp,
     AboutCompany,
     PhilosophyComp,
@@ -42,7 +45,33 @@ export default {
     ContComp,
     FormBack,
     FooterDivider    
-  }
+  },
+  methods:{
+    handleScrollForItem(){
+      let howScroll = window.pageYOffset
+
+      if(howScroll > 100){
+        this.$store.commit('philShow')
+        console.log(howScroll)
+      }
+      if(howScroll > 600){
+        this.$store.commit('catalogShow')
+      }
+      if(howScroll > 750){
+        this.$store.commit('infoShow')
+      }
+      if(howScroll > 1000){
+        this.$store.commit('contactShow')
+      }
+      if(howScroll > 1200){
+        this.$store.commit('formShow')
+      }
+
+    },
+  },
+  created(){
+    window.addEventListener('scroll', this.handleScrollForItem);
+  }, 
 }
 </script>
 

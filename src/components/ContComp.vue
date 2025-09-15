@@ -1,5 +1,5 @@
 <template>
-  <div class="contact animate__animated animate__fadeInUpBig animate__faster animate__delay-3s" id="contact">
+  <div v-if="contactShowOnVuex" class="contact animate__animated animate__fadeInUpBig animate__faster" id="contact">
     <div class="contact-title titles">
        Обратная связь и контакты
     </div>
@@ -34,6 +34,21 @@
     
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return{
+
+    }
+  },
+  computed:{
+    contactShowOnVuex(){
+      return this.$store.state.contactHide
+    }
+  }
+}
+</script>
 
 
 <style lang="scss">

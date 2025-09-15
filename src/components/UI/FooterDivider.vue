@@ -10,6 +10,7 @@
         position: absolute;
         width: 100%;
         background-color: #80a8a278;
+        margin-top: 100px;
     }
 }
 </style>

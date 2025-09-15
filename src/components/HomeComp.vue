@@ -217,4 +217,45 @@ h4{
     left: 22px;
   }
 }
+
+@media(max-width: 426px){
+  .home{
+    margin-top: 20px;
+  }
+  .box{
+    &-title{
+      display: none;
+    }
+    &-descr{
+      width: 100%;
+    &_title{
+        font-size: 50px;
+        justify-content: flex-end;
+        .russ{
+          width: 85px;
+            margin-left: 15px;
+        }
+      }
+      h2{
+        span{
+          font-size: 70px;
+          padding: 5px 12px 5px 95px;
+          &:hover{
+            padding: 5px 115px 5px 12px;
+          }
+        }
+      }
+      h4{
+        span{
+          font-size: 32px;
+        }
+      }
+    }
+  }
+
+  .spanTruck{
+    height: 75px;
+    left: 22px;
+  }
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="philosophy animate__animated animate__fadeInUpBig animate__faster animate__delay-2s"
+    <div v-if="philShowOnVuex" class="philosophy animate__animated animate__fadeInUpBig animate__faster"
         :class="{philosophyMoveLeftTop: whereBackMove == 1, philosophyMoveRightTop: whereBackMove == 2,
             philosophyMoveRightBottom: whereBackMove == 3, philosophyMoveLeftBottom: whereBackMove == 4}">
         <ul class="philosophy-grid">
@@ -72,6 +72,17 @@ export default {
             // backMove: false,
             whereBackMove: 0,
         }        
+    },
+    methods: {
+
+    }, 
+    computed:{
+        philShowOnVuex(){
+            return this.$store.state.philHide
+        }
+    },
+    mounted() {
+    
     },
 }
 </script>
@@ -446,6 +457,22 @@ export default {
     }
     .activeItem{
         font-size: 30px;
+        width: 75%;
+    }
+}
+
+@media(max-width: 426px){
+    .philosophy{
+        height: 700px;
+    }
+        .titles{
+        font-size: 44px;
+    }
+    .two_title{
+        font-size: 60px;
+    }
+    .activeItem{
+        font-size: 44px;
         width: 75%;
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="menu" v-if="activeSide || widthFromVuex > 425" :class="{activeBack: menuBackActive}">
+    <div class="menu" :class="{activeBack: menuBackActive}">
         <nav>
             <ul class="menu_list" v-if="this.$route.name == 'home'">
                 <li @click="activeSide = false" :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
@@ -30,18 +30,7 @@
                     </div>                        
                 </li>
             </ul>
-        </nav>
-        
-    </div>
-    <div class="btns btns-box">
-        <div class="open sideBtns animate__animated animate__rubberBand" 
-            v-if="!activeSide && widthFromVuex < 426" @click="activeSide = true">
-            <i class="bi bi-list"></i>
-        </div>
-        <div div class="close sideBtns animate__animated animate__jello" 
-            v-if="activeSide && widthFromVuex < 426" @click="activeSide = false">
-            <i class="bi bi-x-lg"></i>
-        </div>
+        </nav>        
     </div>
 </template>
 
@@ -53,7 +42,6 @@ export default {
             widthScreen: 0,
             menuBackActive: false,
             dividerHover: 10,
-            activeSide: false,
             listMenuItems: [
                 {
                     id: 0,
@@ -138,9 +126,9 @@ export default {
             if(this.widthScreen > 426){
                 this.activeSide = false
                 // console.log('side menu false')
-                setTimeout(()=> {
-                    this.activeSide = true
-                },1000)
+                // setTimeout(()=> {
+                //     this.activeSide = true
+                // },1000)
             }
             if(this.widthScreen < 426){
                 this.activeSide = true
@@ -236,15 +224,7 @@ nav{
 
     }
 }
-.sideBtns{
-    font-size: 68px;
-    position: relative;
-    cursor: pointer;
-    // top: 50px;
-    // left: 50px;
-    color: #000;
-    z-index: 101;
-}
+
 .activeBack{
     // background-color: #5f9ea0f7;
     background-color: rgb(95 158 160 / 69%);
@@ -264,22 +244,7 @@ nav{
 .activeDivider{
     width: 5% !important;
 }
-.btns{
-    &-box{
-        display: none;
 
-        top: 50px;
-        left: 50px;
-        border: 1px solid #a9a9a91c;
-        height: 96px;
-        position: fixed;
-        width: 100px;
-        z-index: 100;
-        background-color: rgb(95 158 160 / 10%);
-        backdrop-filter: blur(.2rem);
-        border-radius: 10px;
-    }
-}
 
 @media(max-width: 1025px){
     .menu{
@@ -302,21 +267,17 @@ nav{
 }
 @media(max-width: 426px){
     .menu{
+        display: none;
         background-color: rgb(95 158 160 / 90%);
         backdrop-filter: blur(1rem);
         height: 100%;
         width: 100%;
         &_list{
-            font-size: 50px;
+            display: flex;
+            flex-direction: column;
             margin-top: 110px;
             gap: 78px;
-            flex-direction: column;
-            display: flex;
-        }
-    }
-    .btns{
-        &-box{
-            display: block;
+            font-size: 50px;
         }
     }
     .activeDivider{

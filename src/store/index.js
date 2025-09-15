@@ -9,6 +9,11 @@ console.log(windowWidth.value, 'vuex')
 export default createStore({
   state: {
     width: windowWidth.value,
+    philHide: false,
+    catalogHide: false,
+    infoHide: false,
+    contactHide: false,
+    formHide: false,
     contactData: [
       {   
           id: 0,
@@ -92,11 +97,23 @@ export default createStore({
 
   },
   getters: {
-    widthUserScreen(){
-        return 1
-    }
   },
   mutations: {
+    philShow(state){
+      state.philHide = true
+    },
+    catalogShow(state){
+      state.catalogHide = true
+    },
+    infoShow(state){
+      state.infoHide = true
+    },
+    contactShow(state){
+      state.contactHide = true
+    },
+    formShow(state){
+      state.formHide = true
+    }
   },
   actions: {
   },

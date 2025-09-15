@@ -1,5 +1,5 @@
 <template>
-    <div class="about animate__animated animate__fadeInUpBig animate__faster animate__delay-1s" id="about">
+    <div class="about animate__animated animate__fadeInUpBig animate__faster" id="about">
         <div class="about_title">
             О компании 
             <div class="about_title-descr">
@@ -148,6 +148,25 @@ export default {
     }
     .truckImg {
         top: 250px;
+    }
+}
+
+@media(max-width: 426px){
+    .about{
+        &_title{
+            font-size: 46px;
+            &-descr{
+                font-size: 40px;
+            }
+        }
+    }
+    .boxes{
+        font-size: 30px;
+        margin-top: 160px;
+    }
+    .truckImg {
+        top: 602px;
+        width: 520px;
     }
 }
 </style>

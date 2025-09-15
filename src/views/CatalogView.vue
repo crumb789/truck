@@ -1,5 +1,6 @@
 <template>
   <top-menu></top-menu>
+  <side-menu></side-menu>
   <div class="catalog view">
     <h2>Самый актуальный каталог доступен по 
       <a href="https://wa.me/c/79013100781" target="_blank" >ссылке</a>
@@ -15,6 +16,7 @@
 <script>
 // @ is an alias to /src
 import TopMenu from '@/components/UI/TopMenu.vue'
+import SideMenu from '@/components/UI/SideMenu.vue'
 import CatalogViewComp from '@/components/CatalogViewComp.vue'
 import FooterComp from '@/components/FooterComp.vue'
 
@@ -23,6 +25,7 @@ export default {
   name: 'CatalogView1',
   components: {
     TopMenu,
+    SideMenu,
     CatalogViewComp,
     FooterComp
   },

@@ -1,5 +1,5 @@
 <template>
-    <div class="catalog animate__animated animate__fadeInLeftBig animate__faster animate__delay-2s" 
+    <div v-if="catalogShowFromVuex" class="catalog animate__animated animate__fadeInLeftBig animate__faster" 
         :class="{catalogActive: imgActive }">
         <div class="catalog-title" :class="{catalogTitleActive: imgActive }" @click="imgActive = !imgActive" >
             Каталог
@@ -98,6 +98,11 @@ export default {
             ],
         }
     },
+    computed:{
+        catalogShowFromVuex(){
+            return this.$store.state.catalogHide
+        }
+    }
 }
 </script>
 
@@ -378,6 +383,49 @@ export default {
                 font-size: 22px;
             }
         }
+    }
+}
+
+@media(max-width: 426px){
+    .catalog{
+        height: 150px;
+        &-title{
+            font-size: 44px;
+            top: 75px;
+        }
+    }
+    .title{
+        &_catalog{
+            font-size: 40px;
+            margin-left: 265px;
+            bottom: 0;
+        }
+    }
+    .catalogActive{
+        height: 700px;
+    }
+
+    .fullLinkActive{
+        width: 265px;
+        a{
+            font-size: 36px;
+        }
+    }
+    .price{
+        font-size: 34px;
+        a{
+            font-size: 34px;
+        }
+    }
+    .content{
+        &_actual{
+            &-link{
+                font-size: 30px;
+            }
+        }
+    }
+    .buttons{
+        font-size: 70px;
     }
 }
 </style>

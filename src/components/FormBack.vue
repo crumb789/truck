@@ -1,5 +1,5 @@
 <template>
-    <div class="feedback animate__animated animate__fadeInUpBig animate__faster animate__delay-3s">
+    <div v-if="formShowOnVuex" class="feedback animate__animated animate__fadeInUpBig animate__faster">
         <div class="feedback-title titles">Форма связи</div>
 
         <form class="form" action="#" @submit.prevent="onSubmit">
@@ -53,6 +53,9 @@ export default {
         arrayKeys(){
             return this.$store.state.keysMail[0]    /* keys from store */
         },
+        formShowOnVuex(){
+            return this.$store.state.formHide
+        }
     },  
     methods:{
         onSubmit(){
