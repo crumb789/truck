@@ -26,6 +26,7 @@ html{
         -o-background-size: cover;
         background-size: 100% 800%;
   scroll-behavior: smooth; ///плавная прокрутка по ссылке по стр
+  -webkit-tap-highlight-color: transparent;
 }
 
 nav {

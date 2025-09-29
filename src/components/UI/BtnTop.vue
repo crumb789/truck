@@ -68,4 +68,15 @@ export default {
     display: block;
 }
 
+@media(max-width: 426px){
+    .topBtn{
+        bottom: 100px;
+        left: 7.5%;
+        a{
+            i{
+                font-size: 55px;
+            }
+        }
+    }
+}
 </style>

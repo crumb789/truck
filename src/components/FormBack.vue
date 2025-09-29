@@ -12,7 +12,7 @@
             <textarea class="textarea" placeholder="Короткое сообщение" v-model="MessagePersonal" required></textarea>
             
             <div class="policy">
-                <router-link to="/policy" target="_blank" >Политика конфиденциальности</router-link> 
+                <router-link to="/policy" target="_blank" > <span>Политика</span> конфиденциальности</router-link> 
                 <input type="checkbox" id="check" name="check" title="Согласиться с политикой конфиденциальности" required> 
             </div>
 
@@ -141,8 +141,9 @@ export default {
         margin-top: 20px;
         display: flex;
         gap: 20px;
+        text-decoration: underline;
         a{
-            color: #2a2a2a;
+            color: #093054;
             &:hover{
                 color: #1b1836ad;
             }
@@ -180,22 +181,62 @@ export default {
 @media(max-width: 769px){
     .form{
         input{
-            font-size: 20px;
+            font-size: 20px !important;
         }
         textarea{
-            font-size: 20px;
+            font-size: 20px !important;
         }
     }
     .policy{
         a{
-            font-size: 22px;
+            font-size: 22px !important;
         }
     }
     .button{
-        font-size: 22px;
+        font-size: 22px !important;
     }
     .message{
-        font-size: 20px;
+        font-size: 20px !important;
+    }
+}
+
+@media(max-width: 426px){
+    .form{
+        input{
+            font-size: 35px !important;
+            width: 450px !important;
+        }
+        textarea{
+            font-size: 35px !important;
+            width: 450px !important;
+        }
+        .policy{
+            color: #093054;
+            text-decoration: underline;
+            #check{
+                width: 40px !important;
+            }
+
+        }
+    }
+    .policy{
+        margin-top: 50px !important;
+        
+        a{
+            font-size: 35px !important;
+        }
+    }
+    .button{
+        font-size: 35px !important;
+        margin-top: 30px !important;
+    }
+    .message{
+        font-size: 20px !important;
+    }
+    .feedback{
+        &-title{
+            font-size: 60px !important;
+        }
     }
 }
 </style>

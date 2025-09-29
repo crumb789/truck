@@ -244,4 +244,9 @@ export default {
         font-size: 20px;
     }
 }
+@media(max-width: 425px){
+    .infoActive{
+        font-size: 30px;
+    }
+}
 </style>

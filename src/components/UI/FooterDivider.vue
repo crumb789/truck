@@ -13,4 +13,10 @@
         margin-top: 100px;
     }
 }
+
+@media(max-width: 426px){
+    .divider{
+        position: relative;
+    }
+}
 </style>

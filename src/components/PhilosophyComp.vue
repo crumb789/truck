@@ -103,7 +103,7 @@ export default {
     border: 1px solid #2a2a2a;
     box-shadow: 0px -1px 11px #3e3e3e;
     // opacity: 0.8 !important;
-    transition: 4s all;
+    transition: 0.4s all;
     overflow: hidden;
     &:hover{
         /* opacity: 1 !important; */
@@ -469,7 +469,7 @@ export default {
         font-size: 44px;
     }
     .two_title{
-        font-size: 60px;
+        font-size: 80px;
     }
     .activeItem{
         font-size: 44px;

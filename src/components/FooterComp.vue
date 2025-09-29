@@ -50,5 +50,16 @@ export default {
         font-size: 22px;
     }
 }
+
+@media(max-width: 426px){
+    .footer{
+        font-size: 35px;
+        &_links{
+            img{
+                height: 140px;
+            }
+        }
+    }
+}
 </style>
 

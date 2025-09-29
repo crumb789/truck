@@ -196,7 +196,7 @@ nav{
     transform: translate(-50%);
     // background-color: rgba(95, 158, 160, 0.48);
     transition: 0.3s all;
-    z-index: 100;
+    z-index: 101;
     &_list{
         display: flex;
         justify-content: center;
@@ -268,10 +268,15 @@ nav{
 @media(max-width: 426px){
     .menu{
         display: none;
-        background-color: rgb(95 158 160 / 90%);
+        background-color: rgb(95 158 160 / 80%);
         backdrop-filter: blur(1rem);
-        height: 100%;
-        width: 100%;
+        // height: 100%;
+        // width: 100%;
+        height: 98%;
+        width: 96%;
+        top: 1%;
+        border: 1px solid;
+        border-radius: 20px;
         &_list{
             display: flex;
             flex-direction: column;

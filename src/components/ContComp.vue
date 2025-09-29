@@ -10,7 +10,7 @@
       <div style="position:relative;overflow:hidden;">
         <a href="https://yandex.ru/maps/2/saint-petersburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Санкт‑Петербург</a>
         <a href="https://yandex.ru/maps/2/saint-petersburg/house/khimicheskiy_pereulok_1lito/Z0kYdA9iTkwFQFtjfXR5dnVmYA==/?ll=30.283416%2C59.888086&utm_medium=mapframe&utm_source=maps&z=17" style="color:#eee;font-size:12px;position:absolute;top:14px;">Химический переулок, 1литО на карте Санкт‑Петербурга — Яндекс Карты</a>
-        <iframe src="https://yandex.ru/map-widget/v1/?ll=30.283416%2C59.888086&mode=whatshere&utm_source=share&whatshere%5Bpoint%5D=30.282792%2C59.887954&whatshere%5Bzoom%5D=17&z=17" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;">
+        <iframe id="map" src="https://yandex.ru/map-widget/v1/?ll=30.283416%2C59.888086&mode=whatshere&utm_source=share&whatshere%5Bpoint%5D=30.282792%2C59.887954&whatshere%5Bzoom%5D=17&z=17" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;">
         </iframe>
     </div>
     </div>
@@ -111,13 +111,19 @@ export default {
   &_contact{
     position: absolute;
     opacity: 1;
-    color: #7daaa5;
-    // color: #eaf0f2;
+    color: #b7cdca;
     margin-left: 10px;
     font-size: 25px;
     top: 50%;
     transform: translate(0, -50%);
-    right: -35px;
+    right: -45px;
+    box-shadow: 1px 1px 1px #000, -1px -1px 1px #00000036;
+    padding: 3px 0 0 0;
+    background-color: #1c65a8;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(rgb(60 129 165), rgba(126, 162, 163, 0.4784313725));
   }
   &:hover{
     animation: none;
@@ -137,6 +143,38 @@ export default {
     &-icons{
       font-size: 22px;
     }
+  }
+}
+
+@media(max-width: 425px){
+  .contact{
+    &-map{
+      &_descr{
+        font-size: 30px;
+      }
+    }
+    &-text{
+      font-size: 34px;
+    }
+    &-icons{
+      font-size: 34px;
+      i{
+        font-size: 70px !important;
+      }
+    }
+  }
+  .phone{
+    &_contact{
+      font-size: 45px;
+      right: -80px;
+      width: 70px;
+      height: 70px;
+      box-shadow: 2px 2px 1px #000, -2px -2px 2px rgb(0 0 0 / 41%);
+    }
+  }
+  #map{
+    width: 750px;
+    height: 580px;
   }
 }
 </style>

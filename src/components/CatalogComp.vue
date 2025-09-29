@@ -392,6 +392,9 @@ export default {
         &-title{
             font-size: 44px;
             top: 75px;
+            i{
+                font-size: 50px;
+            }
         }
     }
     .title{
@@ -402,7 +405,7 @@ export default {
         }
     }
     .catalogActive{
-        height: 700px;
+        height: 1200px;
     }
 
     .fullLinkActive{
@@ -412,20 +415,34 @@ export default {
         }
     }
     .price{
-        font-size: 34px;
+        font-size: 40px;
         a{
-            font-size: 34px;
+            font-size: 40px;
         }
     }
     .content{
         &_actual{
             &-link{
-                font-size: 30px;
+                font-size: 40px;
+                text-align: center;
+                a{
+                    font-size: 40px;
+                }
             }
+        }
+        &-image{
+            height: 730px;
+            width: 600px;
         }
     }
     .buttons{
         font-size: 70px;
+        &-left{
+            left: -45px;
+        }
+        &-right{
+            right: -45px;
+        }
     }
 }
 </style>

@@ -33,7 +33,7 @@
             </nav>
         
         </div>
-        <div class="btns btns-box">
+        <div class="btns btns-box" :class="{btnsSideBack: SudeMenuBackActive && !activeSide, btnsSideBacgrOff: activeSide}">
             <div class="open sideBtns animate__animated animate__rubberBand" 
                 v-if="!activeSide" @click="activeSide = true">
                 <i class="bi bi-list"></i>
@@ -51,6 +51,7 @@ export default {
     data() {
         return{
             activeSide: false,
+            SudeMenuBackActive: false,
             listMenuItems: [
                 {
                     id: 0,
@@ -117,6 +118,19 @@ export default {
             ]
         }
     },
+    methods:{
+        // handleScrollForSideMenu(){
+        //     let howScroll = window.pageYOffset
+
+        //     if(howScroll > 80){
+        //         this.SudeMenuBackActive = true
+        //     }
+        //     else this.SudeMenuBackActive = false
+        // },
+    },
+    created(){
+        window.addEventListener('scroll', this.handleScrollForSideMenu);
+    }
 }
 </script>
 
@@ -131,13 +145,13 @@ export default {
 .btns{
     &-box{
         display: none;
-        top: 50px;
-        left: 50px;
+        top: 1%;
+        left: 2%;
         border: 1px solid #a9a9a91c;
         height: 96px;
         position: fixed;
         width: 100px;
-        z-index: 100;
+        z-index: 102;
         background-color: rgb(95 158 160 / 10%);
         backdrop-filter: blur(.2rem);
         border-radius: 10px;
@@ -153,6 +167,13 @@ export default {
     color: #000;
     z-index: 101;
 }
+.btnsSideBack{
+    display: none;
+}
+.btnsSideBacgrOff{
+    background-color: none;
+    backdrop-filter: none;
+}
 
 @media(max-width: 426px){
     // .sideMenu{
@@ -162,7 +183,18 @@ export default {
     .btns{
         &-box{
             display: block;
+            transition: 0.2s all;
         }
     }
+    .btnsSideBack{
+        width: 96%;
+        display: flex;
+        border: 1px solid;
+        padding-left: 25px;
+        background-color: rgba(95, 158, 160, 0.5);
+        top: 1%;
+        left: 2%;
+    }
 }
+
 </style>
