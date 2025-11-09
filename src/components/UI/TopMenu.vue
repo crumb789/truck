@@ -1,5 +1,5 @@
 <template>
-    <div class="menu" :class="{activeBack: menuBackActive}">
+    <div class="menu" :class="{activeBack: menuBackActive, menuCatalog: this.$route.name == 'catalogview', activeBackCatalog:  this.$route.name == 'catalogview' && menuBackActive}">
         <nav>
             <ul class="menu_list" v-if="this.$route.name == 'home'">
                 <li @click="activeSide = false" :class="{menuHome: item.id == 0}" @mouseenter="dividerHover = item.id"
@@ -66,7 +66,7 @@ export default {
                 {
                     id: 4,
                     name: 'Контакты',
-                    link: '#contact'
+                    link: '/#contact'
                 },
                 {
                     id: 5,
@@ -225,6 +225,10 @@ nav{
     }
 }
 
+.menuCatalog{
+    background-color: #00777a6e;
+}
+
 .activeBack{
     // background-color: #5f9ea0f7;
     background-color: rgb(95 158 160 / 69%);
@@ -232,6 +236,9 @@ nav{
     border: 1px solid #3e7375;
     border-radius: 0 0 4px 4px;
     width: 100%;
+}
+.activeBackCatalog{
+    background-color: #1f7274b0;
 }
 
 .divider{

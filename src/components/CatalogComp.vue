@@ -14,11 +14,11 @@
         <div class="catalog_actual">
             <div class="catalog_actual-content">
                 <div class="content_actual-link" :class="{opacityLink: imgActive}">
-                    Актуальный каталог и наличие можно посмотреть в WhatsApp по 
+                    Актуальный каталог и наличие можно посмотреть в <span>WhatsApp</span>  по 
                     <a href="https://wa.me/c/79013100781" target="_blank" >ссылке</a>
                 </div>  
                 
-                <div :class="{activeImg: actual.id === idImg}" v-for="actual in imagesActual" :key="actual.id" class="content-image">
+                <div :class="{activeImg: actual.id === idImg && imgActive}" v-for="actual in imagesActual" :key="actual.id" class="content-image">
                     <!-- <img v-if="actual.id === idImg"  :class="{active: imgActive}" :src="require(`../assets/images/${actual.imgName}`)" :alt="actual.imgTitle"> -->
                     <img v-if="actual.id === idImg"  :class="{active: imgActive}" 
                         :src="actual.linkStorage" 
@@ -188,7 +188,7 @@ export default {
                 transition: 0.5s all;
                 cursor: pointer;
                 &:hover{
-                    color: #128c7e;
+                    color: #25d366;
                 }
             }
         }
@@ -267,11 +267,20 @@ export default {
             position: absolute;
             bottom: -31px;
             right: 22%;
+            span{
+                color: #25d366;
+            }
         }
     }
 }
 .activeImg{
     display: block !important;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px 0px rgb(0 0 0 / 80%); 
+    transition: 0.3s all;
+    &:hover{
+        box-shadow: 0px 6px 18px 0px rgb(0 0 0 / 90%); 
+    }
 }
 .buttons{
     position: absolute;

@@ -171,6 +171,8 @@ export default {
 }
 .button{
     position: relative;
+    background-color: rgba(95, 158, 160, 0.1);
+    backdrop-filter: blur(0.2rem);
 }
 .loader{
     position: absolute;

@@ -263,6 +263,7 @@ export default {
         opacity: 0;
         color: #fff;
         text-shadow: 1px 1px 2px #242424;
+        backdrop-filter: blur(0.2rem);
         &:nth-child(1){
             background-color: #525174d5;
         }

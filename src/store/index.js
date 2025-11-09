@@ -4,16 +4,18 @@ import { createStore } from 'vuex'
 import { ref } from 'vue'
 
 const windowWidth = ref(window.innerWidth)
-console.log(windowWidth.value, 'vuex')
+// console.log(windowWidth.value, 'vuex')
 
 export default createStore({
   state: {
     width: windowWidth.value,
-    philHide: false,
-    catalogHide: false,
-    infoHide: false,
-    contactHide: false,
-    formHide: false,
+       /*  Код от функции появление блоков по прокрутке, работает нестабильно, мб пересмотреть  */
+    philHide: true,
+    catalogHide: true,
+    infoHide: true,
+    contactHide: true,
+    formHide: true,
+       /*  Код от функции появление блоков по прокрутке, работает нестабильно, мб пересмотреть  */
     contactData: [
       {   
           id: 0,
@@ -63,6 +65,7 @@ export default createStore({
           id: 7,
           name: 'Оператор ЭДО',
           value: 'АО «Калуга Астрал»',
+          valueHide: '-'
       },
       {   
           id: 8,
@@ -73,17 +76,20 @@ export default createStore({
       {   
           id: 9,
           name: 'Телефон',
-          phone: '+7 901-310-07-81'
+          phone: '+7 995-555-55-55',
+          valueHide: '+7 901-310-07-81'
       },
       {   
           id: 10,
           name: 'Эл. почта',
-          email: 'dukatstroy@gmail.com',
+          email: 'petdukat@mail.com',
+          valueHide: 'dukatstroy@gmail.com'
       },
       {   
           id: 11,
           name: 'Генеральный директор',
-          value: 'Мищенко Михаил Валерьевич',
+          value: 'Иванов Дмитрий Иванович',
+          valueHide: 'Мищенко Михаил Валерьевич'
       }
     ],
     keysMail:[
@@ -93,27 +99,30 @@ export default createStore({
         key: 'QccUYVTCDVBSE0JEN',
       }
     ],
-
+    catalogModalOn: false,
 
   },
   getters: {
   },
   mutations: {
-    philShow(state){
-      state.philHide = true
-    },
-    catalogShow(state){
-      state.catalogHide = true
-    },
-    infoShow(state){
-      state.infoHide = true
-    },
-    contactShow(state){
-      state.contactHide = true
-    },
-    formShow(state){
-      state.formHide = true
+    catalogModalState(state, trueOrFalse){
+      state.catalogModalOn = trueOrFalse
     }
+    // philShow(state){
+    //   state.philHide = true
+    // },
+    // catalogShow(state){
+    //   state.catalogHide = true
+    // },
+    // infoShow(state){
+    //   state.infoHide = true
+    // },
+    // contactShow(state){
+    //   state.contactHide = true
+    // },
+    // formShow(state){
+    //   state.formHide = true
+    // }
   },
   actions: {
   },

@@ -47,30 +47,32 @@ export default {
     FooterDivider    
   },
   methods:{
-    handleScrollForItem(){
-      let howScroll = window.pageYOffset
+   /*  Код от функции появление блоков по прокрутке, работает нестабильно, мб пересмотреть  */
 
-      if(howScroll > 100){
-        this.$store.commit('philShow')
-        console.log(howScroll)
-      }
-      if(howScroll > 600){
-        this.$store.commit('catalogShow')
-      }
-      if(howScroll > 750){
-        this.$store.commit('infoShow')
-      }
-      if(howScroll > 1000){
-        this.$store.commit('contactShow')
-      }
-      if(howScroll > 1200){
-        this.$store.commit('formShow')
-      }
+    // handleScrollForItem(){  
+    //   let howScroll = window.pageYOffset
 
-    },
+    //   if(howScroll > 100){
+    //     this.$store.commit('philShow')
+    //     console.log(howScroll)
+    //   }
+    //   if(howScroll > 600){
+    //     this.$store.commit('catalogShow')
+    //   }
+    //   if(howScroll > 750){
+    //     this.$store.commit('infoShow')
+    //   }
+    //   if(howScroll > 1000){
+    //     this.$store.commit('contactShow')
+    //   }
+    //   if(howScroll > 1200){
+    //     this.$store.commit('formShow')
+    //   }
+
+    // },
   },
   created(){
-    window.addEventListener('scroll', this.handleScrollForItem);
+    // window.addEventListener('scroll', this.handleScrollForItem);
   }, 
 }
 </script>

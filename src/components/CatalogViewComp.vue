@@ -74,10 +74,12 @@ export default {
             if(this.modalId !== id){
                 this.modalId = id
                 this.modalOn = true
+                this.$store.commit('catalogModalState', true)
             }
             else{
                 this.modalId = false
                 this.modalOn = false
+                this.$store.commit('catalogModalState', false)
             }
         },
         addToId(){
@@ -107,6 +109,11 @@ export default {
             height: 350px;
             object-fit: cover;
             cursor: pointer;
+            box-shadow: 0px 4px 6px 0px rgb(0 0 0 / 60%); 
+            transition: 0.3s all;
+            &:hover{
+                box-shadow: 0px 6px 18px 0px rgb(0 0 0 / 90%); 
+            }
         }
     }
 }
@@ -115,15 +122,17 @@ export default {
 }
 .modalActive{
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    // width: 100vw;
+    // height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 99;
     display: flex;
     justify-content: center;
     align-items: center;
     top: 0;
-    z-index: 100;
-    background-color: #000000a1;
+    z-index: 102;
+    background-color: rgba(0, 0, 0, 0.8);
     transition: 0.3s all;
     &_btns{
         position: absolute;
@@ -134,11 +143,25 @@ export default {
             position: inherit;
             left: 8%;
             cursor: pointer;
+            background-color: rgba(95, 158, 160, 0.1);
+            backdrop-filter: blur(0.2rem);
+            border: 1px solid #a9a9a91c;
+            border-radius: 10px;
+            i{
+                color: #a4c7c7;
+            }
         }
         &-right{
             position: inherit;
             right: 8%;
             cursor: pointer;
+            background-color: rgba(95, 158, 160, 0.1);
+            backdrop-filter: blur(0.2rem);
+            border: 1px solid #a9a9a91c;
+            border-radius: 10px;
+            i{
+                color: #a4c7c7;
+            }
         }
     }
     
@@ -148,6 +171,18 @@ export default {
         object-fit: cover;
     }
     
+}
+
+@media(max-width: 426px){
+    .modalActive{
+        &_btns{
+            font-size: 100px;
+        }
+        img{
+            width: 85%;
+            height: 85%;
+        }
+    }
 }
 </style>
 

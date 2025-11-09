@@ -2,13 +2,17 @@
   <top-menu></top-menu>
   <side-menu></side-menu>
   <div class="catalog view">
-    <h2>Самый актуальный каталог доступен по 
+    <h2 v-if="!modalState">Самый актуальный каталог доступен по 
       <a href="https://wa.me/c/79013100781" target="_blank" >ссылке</a>
     </h2>
 
     <catalog-view-comp></catalog-view-comp>
+    
+    <h2 v-if="!modalState">Самый актуальный каталог доступен по 
+      <a href="https://wa.me/c/79013100781" target="_blank" >ссылке</a>
+    </h2>
 
-    <footer-comp></footer-comp>
+    <footer-comp v-if="!modalState"></footer-comp>
   </div>
 </template>
 
@@ -38,6 +42,9 @@ export default {
     routeAnimation() {
       return this.$route;
     },
+    modalState(){
+      return this.$store.state.catalogModalOn
+    }
   },
 
 }
