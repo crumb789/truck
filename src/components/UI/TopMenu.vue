@@ -66,7 +66,7 @@ export default {
                 {
                     id: 4,
                     name: 'Контакты',
-                    link: '/#contact'
+                    link: '#contact'
                 },
                 {
                     id: 5,
